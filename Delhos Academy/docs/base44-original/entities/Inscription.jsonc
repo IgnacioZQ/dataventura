@@ -1,0 +1,50 @@
+{
+  "name": "Inscription",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "course",
+        "webinar",
+        "workshop"
+      ],
+      "description": "Tipo de inscripci\u00f3n"
+    },
+    "item_id": {
+      "type": "string",
+      "description": "ID del curso o webinar"
+    },
+    "item_title": {
+      "type": "string",
+      "description": "Nombre del curso o webinar"
+    },
+    "name": {
+      "type": "string",
+      "description": "Nombre del interesado"
+    },
+    "email": {
+      "type": "string",
+      "description": "Correo electr\u00f3nico"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Tel\u00e9fono de contacto"
+    },
+    "message": {
+      "type": "string",
+      "description": "Mensaje o comentario adicional"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n adicional de la inscripci\u00f3n (hasta 1000 caracteres)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "type",
+    "item_title",
+    "name",
+    "email"
+  ]
+}

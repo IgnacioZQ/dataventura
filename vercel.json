@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run publicar",
+  "outputDirectory": "publicar",
+  "rewrites": [
+    { "source": "/academy/:path*", "destination": "/academy/index.html" }
+  ]
+}

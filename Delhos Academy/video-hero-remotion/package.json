@@ -1,0 +1,24 @@
+{
+  "name": "delhos-academy-video-hero",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Animación del hero de Delhos Academy hecha con Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render HeroLoop out/hero-loop.mp4",
+    "render:webm": "remotion render HeroLoop out/hero-loop.webm --codec=vp9",
+    "render:vertical": "remotion render HeroVertical out/hero-vertical.mp4",
+    "poster": "remotion still HeroLoop out/hero-poster.png --frame=60"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Submission",
+  "type": "object",
+  "properties": {
+    "assignment_id": {
+      "type": "string",
+      "description": "ID de la tarea"
+    },
+    "student_id": {
+      "type": "string",
+      "description": "ID del estudiante"
+    },
+    "student_email": {
+      "type": "string",
+      "description": "Email del estudiante"
+    },
+    "student_name": {
+      "type": "string",
+      "description": "Nombre del estudiante"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL del archivo entregado"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comentarios del estudiante"
+    },
+    "grade": {
+      "type": "number",
+      "description": "Calificaci\u00f3n otorgada"
+    },
+    "feedback": {
+      "type": "string",
+      "description": "Retroalimentaci\u00f3n del instructor"
+    },
+    "graded_by": {
+      "type": "string",
+      "description": "Email del instructor que calific\u00f3"
+    },
+    "graded_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Fecha de calificaci\u00f3n"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "graded"
+      ],
+      "default": "submitted",
+      "description": "Estado de la entrega"
+    }
+  },
+  "required": [
+    "assignment_id",
+    "student_id",
+    "student_email",
+    "file_url"
+  ]
+}

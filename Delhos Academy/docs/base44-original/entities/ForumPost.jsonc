@@ -1,0 +1,54 @@
+{
+  "name": "ForumPost",
+  "type": "object",
+  "properties": {
+    "thread_id": {
+      "type": "string",
+      "description": "ID del tema"
+    },
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "author_email": {
+      "type": "string",
+      "description": "Email del autor"
+    },
+    "author_name": {
+      "type": "string",
+      "description": "Nombre del autor"
+    },
+    "author_type": {
+      "type": "string",
+      "enum": [
+        "instructor",
+        "student"
+      ],
+      "description": "Tipo de autor"
+    },
+    "content": {
+      "type": "string",
+      "description": "Contenido del mensaje"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL de imagen adjunta"
+    },
+    "likes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Emails de usuarios que dieron like"
+    }
+  },
+  "required": [
+    "thread_id",
+    "course_id",
+    "author_email",
+    "author_name",
+    "author_type",
+    "content"
+  ]
+}

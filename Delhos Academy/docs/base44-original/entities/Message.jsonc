@@ -1,0 +1,59 @@
+{
+  "name": "Message",
+  "type": "object",
+  "properties": {
+    "sender_email": {
+      "type": "string",
+      "description": "Email del remitente"
+    },
+    "sender_name": {
+      "type": "string",
+      "description": "Nombre del remitente"
+    },
+    "sender_type": {
+      "type": "string",
+      "enum": [
+        "student",
+        "instructor"
+      ],
+      "description": "Tipo de remitente"
+    },
+    "recipient_email": {
+      "type": "string",
+      "description": "Email del destinatario"
+    },
+    "recipient_name": {
+      "type": "string",
+      "description": "Nombre del destinatario"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Asunto del mensaje"
+    },
+    "message": {
+      "type": "string",
+      "description": "Contenido del mensaje"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL del archivo adjunto"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si el mensaje ha sido le\u00eddo"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n o resumen del mensaje (hasta 1000 caracteres)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "sender_email",
+    "sender_name",
+    "sender_type",
+    "recipient_email",
+    "message"
+  ]
+}

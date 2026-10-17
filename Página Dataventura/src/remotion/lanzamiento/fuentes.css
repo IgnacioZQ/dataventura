@@ -1,0 +1,7 @@
+/* Tipografías de la marca para el render del video (en la página ya las carga src/index.css). */
+@font-face { font-family: "Lilita One"; font-weight: 400; src: url("../../assets/fonts/lilita-one-latin.woff2") format("woff2"); }
+@font-face { font-family: "Lilita One"; font-weight: 400; src: url("../../assets/fonts/lilita-one-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+1E00-1E9F; }
+@font-face { font-family: "Nunito"; font-weight: 600 800; src: url("../../assets/fonts/nunito-latin.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-weight: 600 800; src: url("../../assets/fonts/nunito-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+1E00-1E9F; }
+@font-face { font-family: "Outfit"; font-weight: 600 800; src: url("../../assets/fonts/outfit-latin.woff2") format("woff2"); }
+@font-face { font-family: "Outfit"; font-weight: 600 800; src: url("../../assets/fonts/outfit-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+1E00-1E9F; }

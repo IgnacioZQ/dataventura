@@ -1,0 +1,97 @@
+{
+  "name": "Webinar",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo del webinar o workshop"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n del evento"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "webinar",
+        "workshop"
+      ],
+      "default": "webinar",
+      "description": "Tipo de evento"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor"
+    },
+    "instructor_name": {
+      "type": "string",
+      "description": "Nombre del instructor"
+    },
+    "date": {
+      "type": "string",
+      "description": "Fecha del evento (Ej: 15 de Abril 2026)"
+    },
+    "time": {
+      "type": "string",
+      "description": "Hora del evento (Ej: 19:00 - 21:00)"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duraci\u00f3n estimada (Ej: 2 horas)"
+    },
+    "meet_link": {
+      "type": "string",
+      "description": "Enlace de acceso (Zoom / Meet)"
+    },
+    "price": {
+      "type": "number",
+      "default": 0,
+      "description": "Precio (0 = gratuito)"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Imagen del evento"
+    },
+    "available_spots": {
+      "type": "number",
+      "description": "Cupos disponibles (dejar vac\u00edo = ilimitado)"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Temas que se tratar\u00e1n"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Requisitos previos"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "upcoming",
+        "live",
+        "finished"
+      ],
+      "default": "upcoming",
+      "description": "Estado del evento"
+    },
+    "category": {
+      "type": "string",
+      "description": "Categor\u00eda del evento"
+    },
+    "registration_link": {
+      "type": "string",
+      "description": "Link externo de registro (opcional)"
+    }
+  },
+  "required": [
+    "title",
+    "instructor_email",
+    "type"
+  ]
+}

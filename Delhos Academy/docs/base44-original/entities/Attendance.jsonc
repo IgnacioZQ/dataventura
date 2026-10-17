@@ -1,0 +1,42 @@
+{
+  "name": "Attendance",
+  "type": "object",
+  "properties": {
+    "student_id": {
+      "type": "string",
+      "description": "ID del estudiante"
+    },
+    "student_email": {
+      "type": "string",
+      "description": "Email del estudiante"
+    },
+    "lesson_id": {
+      "type": "string",
+      "description": "ID de la lecci\u00f3n"
+    },
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "attended": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si el estudiante asisti\u00f3"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Fecha de la clase"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n u observaciones sobre la asistencia (hasta 1000 caracteres)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "student_id",
+    "lesson_id",
+    "course_id"
+  ]
+}

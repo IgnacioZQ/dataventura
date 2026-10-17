@@ -1,0 +1,14 @@
+{
+  "name": "delhos-paginas-web",
+  "private": true,
+  "description": "Sitio unificado de Delhos: landing de Delhos, Delhos Academy y la landing de Dataventura bajo un mismo dominio.",
+  "type": "module",
+  "scripts": {
+    "start": "node herramientas/servidor.mjs",
+    "compilar": "npm --prefix Delhos run build && npm --prefix \"Delhos Academy\" run build && npm --prefix \"Página Dataventura\" run build",
+    "delhos": "npm --prefix Delhos run build",
+    "academy": "npm --prefix \"Delhos Academy\" run build",
+    "dataventura": "npm --prefix \"Página Dataventura\" run build",
+    "publicar": "node herramientas/publicar.mjs"
+  }
+}

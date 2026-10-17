@@ -1,0 +1,58 @@
+{
+  "name": "Congratulation",
+  "type": "object",
+  "properties": {
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor"
+    },
+    "instructor_name": {
+      "type": "string",
+      "description": "Nombre del instructor"
+    },
+    "target_type": {
+      "type": "string",
+      "enum": [
+        "all",
+        "specific"
+      ],
+      "description": "Si es para todos o espec\u00edfico"
+    },
+    "student_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs de estudiantes espec\u00edficos"
+    },
+    "message": {
+      "type": "string",
+      "description": "Mensaje de felicitaci\u00f3n"
+    },
+    "points": {
+      "type": "number",
+      "default": 0,
+      "description": "Puntos otorgados"
+    },
+    "badge": {
+      "type": "string",
+      "description": "Insignia especial otorgada"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n adicional de la felicitaci\u00f3n (hasta 1000 caracteres)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "course_id",
+    "instructor_email",
+    "instructor_name",
+    "target_type",
+    "message"
+  ]
+}

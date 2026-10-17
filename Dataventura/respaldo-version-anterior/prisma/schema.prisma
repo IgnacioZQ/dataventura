@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// El contenido (rutas, islas, desafíos) vive en src/content.
+// La base de datos guarda solo personas y su progreso.
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum DeclaredGoal {
+  DECISIONES
+  PROFESIONAL
+  ESTUDIOS
+  CURIOSIDAD
+}
+
+enum DeclaredLevel {
+  PRINCIPIANTE
+  INTERMEDIO
+  AVANZADO
+}
+
+enum SessionKind {
+  ISLAND
+  REVIEW
+}
+
+model User {
+  id                    String         @id @default(cuid())
+  email                 String         @unique
+  nombre                String
+  passwordHash          String?
+  objetivoDeclarado     DeclaredGoal?
+  nivelInicialDeclarado DeclaredLevel?
+  role                  Role           @default(USER)
+  soundEnabled          Boolean        @default(false)
+  totalXp               Int            @default(0)
+  dailyStreak           Int            @default(0)
+  bestStreak            Int            @default(0)
+  /// Último día jugado, "YYYY-MM-DD" en la zona horaria del jugador.
+  lastActiveDay         String?
+  onboardingCompletedAt DateTime?
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+
+  islandProgress    UserIslandProgress[]
+  challengeProgress UserChallengeProgress[]
+  playSessions      PlaySession[]
+  analyticsEvents   AnalyticsEvent[]
+
+  @@index([createdAt])
+}
+
+model UserIslandProgress {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  islandSlug    String
+  /// Expediciones terminadas en esta isla.
+  attempts      Int       @default(0)
+  completed     Boolean   @default(false)
+  /// Mejor resultado obtenido (0 a 3).
+  stars         Int       @default(0)
+  completedAt   DateTime?
+  lastAttemptAt DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([userId, islandSlug])
+  @@index([userId, completed])
+}
+
+model UserChallengeProgress {
+  id             String    @id @default(cuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challengeId    String
+  attempts       Int       @default(0)
+  correctCount   Int       @default(0)
+  /// Fallos seguidos desde el último acierto.
+  wrongStreak    Int       @default(0)
+  firstSolvedAt  DateTime?
+  /// Caja de repaso espaciado (0 = recién aprendido o fallado).
+  box            Int       @default(0)
+  nextReviewAt   DateTime?
+  lastAnsweredAt DateTime  @default(now())
+
+  @@unique([userId, challengeId])
+  @@index([userId, nextReviewAt])
+}
+
+model PlaySession {
+  id           String      @id @default(cuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind         SessionKind
+  islandSlug   String?
+  challengeIds String[]
+  solvedIds    String[]    @default([])
+  answers      Int         @default(0)
+  misses       Int         @default(0)
+  xpEarned     Int         @default(0)
+  startedAt    DateTime    @default(now())
+  completedAt  DateTime?
+
+  @@index([userId, startedAt])
+  @@index([completedAt])
+}
+
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  event      String
+  properties Json
+  occurredAt DateTime @default(now())
+
+  @@index([event, occurredAt])
+  @@index([userId, occurredAt])
+}
+
+/// Contador de intentos por ventana de tiempo (login y registro).
+model RateLimitBucket {
+  key     String   @id
+  count   Int      @default(0)
+  resetAt DateTime
+}

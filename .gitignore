@@ -1,0 +1,3 @@
+# Sitio armado por "npm run publicar": se regenera en cada publicación.
+publicar/
+node_modules/

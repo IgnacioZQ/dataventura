@@ -1,0 +1,50 @@
+{
+  "name": "Assignment",
+  "type": "object",
+  "properties": {
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "course_name": {
+      "type": "string",
+      "description": "Nombre del curso"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo de la tarea"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n e instrucciones"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Fecha l\u00edmite de entrega"
+    },
+    "max_grade": {
+      "type": "number",
+      "default": 100,
+      "description": "Puntaje m\u00e1ximo"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor que la cre\u00f3"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "closed"
+      ],
+      "default": "active",
+      "description": "Estado de la tarea"
+    }
+  },
+  "required": [
+    "course_id",
+    "title",
+    "instructor_email"
+  ]
+}

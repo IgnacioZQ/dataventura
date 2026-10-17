@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ tipografías (las mismas de la app) */
+@font-face { font-family: "Lilita One"; font-weight: 400; font-display: swap; src: url("./assets/fonts/lilita-one-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Lilita One"; font-weight: 400; font-display: swap; src: url("./assets/fonts/lilita-one-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Nunito"; font-weight: 600 800; font-display: swap; src: url("./assets/fonts/nunito-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Nunito"; font-weight: 600 800; font-display: swap; src: url("./assets/fonts/nunito-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Outfit"; font-weight: 600 800; font-display: swap; src: url("./assets/fonts/outfit-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Outfit"; font-weight: 600 800; font-display: swap; src: url("./assets/fonts/outfit-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* ------------------------------------------------------------------ marca: los colores de la app */
+@theme {
+  --font-display: "Lilita One", "Outfit", system-ui, sans-serif;
+  --font-ui: "Outfit", system-ui, sans-serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --color-dv: #7b4dff;          /* morado Dataventura */
+  --color-dv-600: #6a3de8;
+  --color-dv-700: #5a30d6;      /* morado marino */
+  --color-dv-800: #4a25b8;
+  --color-dv-900: #3b2a6e;
+  --color-tinta: #1b1230;
+  --color-oro: #ffd166;
+  --color-oro-700: #d6a572;
+  --color-lila-50: #f7f4ff;
+  --color-lila-100: #f4f0ff;
+  --color-lila-200: #efe9ff;
+  --color-borde: #e5e0f2;
+  --color-lila-300: #cdbcff;
+  --color-lila-400: #a98bff;
+  --color-suave: #4a4360;       /* texto secundario */
+  --color-gris: #6b6580;
+  --color-coral: #f0556f;
+  --color-coral-700: #bd3752;
+  --color-verde: #2fbf8a;
+  --color-verde-700: #167a55;
+  --color-cielo: #8fc4ff;
+  --color-rosa: #ff9db3;
+
+  --animate-flotar: flotar 3.4s ease-in-out infinite;
+  --animate-mecer: mecer 4s ease-in-out infinite;
+  @keyframes flotar { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+  @keyframes mecer { 0%, 100% { transform: rotate(-3deg) translateY(0) } 50% { transform: rotate(3deg) translateY(-4px) } }
+}
+
+/* ------------------------------------------------------------------ base */
+/* scroll-padding-bottom: que la isla de ruta (fija abajo) no tape lo que se enfoca con el teclado. */
+html { scroll-behavior: smooth; scroll-padding-top: 88px; scroll-padding-bottom: 96px; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+::selection { background: var(--color-oro); color: var(--color-tinta); }
+/* El contorno sigue el radio de cada elemento (no se le cambia la forma al enfocarlo). */
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--color-dv);
+  outline-offset: 3px;
+}
+/* Anillo hacia adentro donde el contenedor recorta lo que sobresale (preguntas frecuentes, pestañas). En las
+   pestañas el foco siempre cae en la activa, que tiene la píldora de color: por eso el anillo es blanco. */
+.foco-dentro:focus-visible { outline-offset: -4px; }
+[role="tab"]:focus-visible { outline-color: #fff; outline-offset: -5px; }
+/* Sin la espera del doble toque para hacer zoom en botones y controles. */
+a, button, label, input, [role="tab"] { touch-action: manipulation; }
+img { max-width: 100%; }
+
+/* ------------------------------------------------------------------ piezas de la marca */
+@layer components {
+  /* Botón "de juego": canto inferior grueso que se hunde al presionar, igual que en la app. */
+  .btn-juego {
+    --sombra: var(--color-dv-700);
+    display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+    min-height: 56px; padding: 0 1.75rem; border-radius: 16px; border: 0;
+    font-family: var(--font-ui); font-weight: 800; font-size: 1rem; letter-spacing: .04em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; user-select: none; white-space: nowrap; text-align: center;
+    background: var(--color-dv); color: #fff;
+    box-shadow: 0 5px 0 var(--sombra);
+    transition: transform .08s ease, box-shadow .08s ease, filter .15s ease;
+  }
+  /* Teléfonos de 320 px: si el texto no cabe en una línea, el botón parte el texto en vez de salirse de la pantalla. */
+  @media (max-width: 359px) { .btn-juego { white-space: normal; max-width: 100%; } }
+  .btn-juego:hover { filter: brightness(1.06); }
+  .btn-juego:active { transform: translateY(5px); box-shadow: 0 0 0 var(--sombra); }
+  .btn-juego.blanco { background: #fff; color: var(--color-dv); border: 2px solid var(--color-borde); --sombra: var(--color-borde); }
+  .btn-juego.oro { background: var(--color-oro); color: var(--color-tinta); --sombra: var(--color-oro-700); }
+  .btn-juego.oscuro { background: var(--color-tinta); color: #fff; --sombra: #0d0818; }
+
+  /* Tarjeta con canto, como las de la app. */
+  .tarjeta {
+    background: #fff; border: 2px solid var(--color-borde); border-radius: 26px;
+    box-shadow: 0 6px 0 var(--color-borde);
+  }
+  .etiqueta {
+    display: inline-flex; align-items: center; gap: .45rem;
+    font-family: var(--font-ui); font-weight: 800; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--color-dv-700); background: #fff; border: 2px solid var(--color-borde); border-radius: 999px; padding: .4rem .9rem;
+  }
+  .titulo-seccion {
+    font-family: var(--font-display); font-weight: 400; line-height: 1.04; letter-spacing: -.005em;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    text-wrap: balance;
+  }
+}
+
+/* Movimiento reducido: sin animaciones decorativas. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ------------------------------------------------------------------ animaciones del diseño «Dataventura Landing» */
+@keyframes deriva1 { to { transform: translate(120px, 80px) scale(1.15) } }
+@keyframes deriva2 { to { transform: translate(-90px, 60px) scale(.9) } }
+@keyframes deriva3 { to { transform: translate(-120px, -60px) scale(1.2) } }
+.mancha-viva { position: absolute; border-radius: 50%; filter: blur(64px); will-change: transform; pointer-events: none }
+.mv1 { width: 420px; height: 420px; left: -120px; top: -80px; background: #cdbcff; opacity: .5; animation: deriva1 16s ease-in-out infinite alternate }
+.mv2 { width: 360px; height: 360px; right: -100px; top: 120px; background: #ffd166; opacity: .32; animation: deriva2 19s ease-in-out infinite alternate }
+.mv3 { width: 320px; height: 320px; left: 40%; bottom: -160px; background: #8fe0b8; opacity: .32; animation: deriva3 22s ease-in-out infinite alternate }
+@keyframes flotar2 { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+.flota { animation: flotar2 3.4s ease-in-out infinite } .flota.d2 { animation-delay: -1.2s } .flota.d3 { animation-delay: -2.3s }
+@keyframes girar { to { transform: rotate(360deg) } }
+.anillo { animation: girar 40s linear infinite }
+@keyframes llamita { from { transform: scale(1, 1) rotate(-3deg) } to { transform: scale(1.08, .94) rotate(3deg) } }
+.llamita { animation: llamita 1.2s ease-in-out infinite alternate; transform-origin: 50% 90% }
+@keyframes gema { 0%, 70%, 100% { transform: rotateY(0) } 85% { transform: rotateY(180deg) } }
+.gema-gira { animation: gema 3s ease-in-out infinite }
+@keyframes eq { from { transform: scaleY(.6) } to { transform: scaleY(1) } }
+.eq { transform-origin: bottom; animation: eq 1.6s ease-in-out infinite alternate } .eq2 { animation-delay: -.4s } .eq3 { animation-delay: -.9s } .eq4 { animation-delay: -1.3s }
+/* Pulso de las pistas: con texto-suave (#4a4360) el punto más tenue (.75) sigue en 4,6:1 sobre blanco. */
+@keyframes pista { 0%, 100% { opacity: 1 } 50% { opacity: .75 } }
+.pista { animation: pista 2.6s ease-in-out infinite }
+.brillo { position: relative; overflow: hidden; isolation: isolate }
+.brillo::after { content: ""; position: absolute; inset: -2px; z-index: -1; background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.45) 48%, transparent 66%); transform: translateX(-120%); animation: brillo 3.6s ease-in-out infinite }
+@keyframes brillo { 0%, 55% { transform: translateX(-120%) } 85%, 100% { transform: translateX(120%) } }
+.empuja { transition: transform .2s ease } a:hover .empuja, button:hover .empuja { transform: translateX(4px) }
+.pildora {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  font-family: var(--font-ui); font-weight: 800; font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--color-dv-700); background: var(--color-lila-200); border: 2px solid #e1d8ff; border-radius: 999px; padding: 5px 14px 5px 5px;
+}
+.pildora b { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; border-radius: 999px; background: var(--color-dv); color: #fff; font-weight: 800; font-size: 12px; letter-spacing: 0 }
+@media (prefers-reduced-motion: reduce) {
+  .mancha-viva, .flota, .anillo, .llamita, .gema-gira, .eq, .pista, .brillo::after { animation: none !important }
+}

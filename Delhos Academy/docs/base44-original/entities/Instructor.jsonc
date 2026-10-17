@@ -1,0 +1,107 @@
+{
+  "name": "Instructor",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nombre completo del instructor"
+    },
+    "email": {
+      "type": "string",
+      "description": "Correo electr\u00f3nico del instructor"
+    },
+    "password": {
+      "type": "string",
+      "description": "Contrase\u00f1a de acceso"
+    },
+    "profile_image": {
+      "type": "string",
+      "description": "URL de la foto de perfil"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Biograf\u00eda del instructor"
+    },
+    "specialties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u00c1reas de especializaci\u00f3n"
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degree": {
+            "type": "string"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "year": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Educaci\u00f3n acad\u00e9mica"
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Experiencia profesional"
+    },
+    "achievements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Logros y reconocimientos"
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Certificaciones profesionales"
+    },
+    "linkedin": {
+      "type": "string",
+      "description": "URL de perfil de LinkedIn"
+    },
+    "website": {
+      "type": "string",
+      "description": "Sitio web personal"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "password"
+  ]
+}

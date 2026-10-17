@@ -1,0 +1,49 @@
+{
+  "name": "Announcement",
+  "type": "object",
+  "properties": {
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor"
+    },
+    "instructor_name": {
+      "type": "string",
+      "description": "Nombre del instructor"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo del anuncio"
+    },
+    "content": {
+      "type": "string",
+      "description": "Contenido del anuncio"
+    },
+    "link_url": {
+      "type": "string",
+      "description": "URL del link adjunto (opcional)"
+    },
+    "link_text": {
+      "type": "string",
+      "description": "Texto del link adjunto (opcional)"
+    },
+    "read_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "IDs de estudiantes que han le\u00eddo el anuncio"
+    }
+  },
+  "required": [
+    "course_id",
+    "instructor_email",
+    "instructor_name",
+    "title",
+    "content"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "name": "Course",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo del curso"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n del curso"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Resumen corto del curso (1-2 l\u00edneas para destacar)"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor"
+    },
+    "instructor_name": {
+      "type": "string",
+      "description": "Nombre del instructor"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duraci\u00f3n del curso"
+    },
+    "total_lessons": {
+      "type": "number",
+      "description": "N\u00famero total de clases en vivo"
+    },
+    "language": {
+      "type": "string",
+      "description": "Idioma del curso (Ej: Espa\u00f1ol, Ingl\u00e9s)"
+    },
+    "schedule": {
+      "type": "string",
+      "description": "Horario de clases"
+    },
+    "start_date": {
+      "type": "string",
+      "description": "Fecha de inicio del curso (mes y a\u00f1o)"
+    },
+    "end_date": {
+      "type": "string",
+      "description": "Fecha de t\u00e9rmino estimada del curso"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Imagen del curso"
+    },
+    "promo_video_url": {
+      "type": "string",
+      "description": "URL de video promocional del curso (YouTube, Vimeo, etc.)"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "Principiante",
+        "Intermedio",
+        "Avanzado"
+      ],
+      "default": "Principiante",
+      "description": "Nivel del curso"
+    },
+    "price": {
+      "type": "number",
+      "description": "Precio del curso"
+    },
+    "discount": {
+      "type": "number",
+      "default": 0,
+      "description": "Descuento en porcentaje"
+    },
+    "available_spots": {
+      "type": "number",
+      "description": "Cupos disponibles"
+    },
+    "category": {
+      "type": "string",
+      "description": "Categor\u00eda del curso"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Etiquetas del curso (Ej: Python, Machine Learning, R)"
+    },
+    "learning_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u00bfQu\u00e9 aprender\u00e1n los estudiantes? (logros concretos al terminar el curso)"
+    },
+    "curriculum": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "T\u00edtulo del tema o m\u00f3dulo"
+              },
+              "description": {
+                "type": "string",
+                "description": "Breve descripci\u00f3n de qu\u00e9 se ver\u00e1 en este tema"
+              }
+            }
+          }
+        ]
+      },
+      "description": "Temario del curso. Cada entrada puede ser un texto breve o un objeto con t\u00edtulo y descripci\u00f3n."
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Requisitos previos"
+    },
+    "methodology": {
+      "type": "string",
+      "description": "Descripci\u00f3n de la metodolog\u00eda de aprendizaje del curso (clases en vivo, proyectos, ejercicios, etc.)"
+    },
+    "target_audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u00bfA qui\u00e9n est\u00e1 dirigido este curso?"
+    },
+    "tools_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Herramientas y tecnolog\u00edas que se usar\u00e1n (Ej: Python, Tableau, SQL)"
+    },
+    "includes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u00bfQu\u00e9 incluye el curso? (Ej: Acceso a grabaciones, Material de apoyo, Certificado)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "open_for_registration",
+        "finished"
+      ],
+      "default": "open_for_registration",
+      "description": "Estado del curso"
+    }
+  },
+  "required": [
+    "title",
+    "instructor_email"
+  ]
+}

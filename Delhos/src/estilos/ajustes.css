@@ -1,0 +1,65 @@
+/* Ajustes sobre la hoja del diseño (diseno.css, copia de la landing de Claude Design):
+   - las tipografías se sirven desde el propio sitio (Fontsource) en vez de Google Fonts;
+   - el reproductor de Remotion ocupa la pantalla de la película. */
+:root {
+  --f-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --f-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --dv-font: "Fredoka Variable", "Fredoka", "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --ac-font: "Figtree Variable", "Figtree", "Plus Jakarta Sans Variable", system-ui, sans-serif;
+}
+
+.film-screen .reproductor { position: absolute; inset: 0; }
+.film-screen .comp { position: absolute; left: 0; top: 0; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.saltar { position: fixed; left: 12px; top: -60px; z-index: 400; padding: 12px 16px; border-radius: 12px; background: var(--noche); color: #fff; font-weight: 700; transition: top .2s; }
+.saltar:focus { top: 12px; }
+
+/* ---------- Auditoría (Web Interface Guidelines, taste-frontend, ui-ux-kit) ----------
+   Overrides mínimos: no cambian el diseño, solo foco, contraste, teclado, celular y movimiento reducido. */
+
+/* Foco visible donde el anillo global no se ve */
+.show.is-ac:focus-visible { outline-color: var(--ac-navy); }
+.show.is-dv:focus-visible { outline-color: var(--dv-strong); }
+.film :focus-visible { outline-color: #fff; }
+.film-track input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--foco); outline-offset: 2px; }
+.toc:focus-within { opacity: 1; pointer-events: auto; }
+.nav:focus-within { translate: none; }
+
+/* Contraste AA */
+.show.is-dv .show-head small { color: #fff; }
+.show.is-dv .show-head small i { background: rgba(27, 18, 48, .2); }
+.film-chapters button { color: rgba(255, 255, 255, .8); }
+.film-time { color: rgba(255, 255, 255, .85); }
+.toc i { opacity: 1; }
+
+/* Película: con poca altura (celular horizontal) los controles quedan alcanzables; capítulos solo si caben */
+.film-modal { overscroll-behavior: contain; }
+@media (max-height: 600px) { .film-modal { overflow-y: auto; } }
+@media (max-width: 1100px) { .film-chapters { display: none; } }
+
+/* Celular: la palabra que se descifra cabe a 320–375 px; el menú no arrastra la página */
+@media (max-width: 380px) { .hero-title { font-size: min(2.6rem, 11vw); } }
+@media (max-width: 920px) { .menu { overscroll-behavior: contain; } }
+.dd-scrim { height: 100dvh; }
+
+/* Respuesta táctil y sin hover pegado al tocar */
+a, button, label, input, textarea, [tabindex] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.btn:active, .copy:active, .film-btn:active, .film-close:active, .burger:active, .to-top:active, .q button:active { scale: .97; }
+@media (hover: none) { .force:hover, .branch:hover, .q:hover, .dd-card:hover { translate: none; } }
+
+/* Enlace para saltar: se mueve con transform, no con top */
+.saltar { top: 12px; translate: 0 -80px; transition: translate .2s; }
+.saltar:focus { translate: none; }
+
+/* Borde giratorio del formulario: se detiene fuera de pantalla */
+.form.parado::before { animation-play-state: paused; }
+
+/* La película en carga: el punto del botón late mientras llega Remotion */
+.cargando .play-dot { animation: halo-b 1.4s infinite; }
+
+/* Movimiento reducido: solo fundidos, también en las transiciones */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-property: opacity, visibility, color, background-color, border-color, box-shadow !important; }
+}

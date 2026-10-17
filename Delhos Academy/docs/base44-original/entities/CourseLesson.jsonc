@@ -1,0 +1,67 @@
+{
+  "name": "CourseLesson",
+  "type": "object",
+  "properties": {
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "module_id": {
+      "type": "string",
+      "description": "ID del m\u00f3dulo al que pertenece"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo de la lecci\u00f3n"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n de la lecci\u00f3n"
+    },
+    "order": {
+      "type": "number",
+      "description": "Orden de la lecci\u00f3n"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duraci\u00f3n estimada"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "live",
+        "recording",
+        "document"
+      ],
+      "description": "Tipo de contenido"
+    },
+    "content_url": {
+      "type": "string",
+      "description": "URL del contenido (grabaci\u00f3n, documento, etc)"
+    },
+    "meet_link": {
+      "type": "string",
+      "description": "Enlace de Meet/Zoom para clases en vivo"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Fecha y hora programada para clase en vivo"
+    },
+    "google_event_id": {
+      "type": "string",
+      "description": "ID del evento en Google Calendar asociado"
+    },
+    "is_completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si la clase ya se realiz\u00f3"
+    }
+  },
+  "required": [
+    "course_id",
+    "module_id",
+    "title",
+    "type"
+  ]
+}

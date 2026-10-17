@@ -1,0 +1,168 @@
+/* Landing de Delhos: aplica el sistema de diseño «Delhos» de Claude Design (tokens, tipografías y componentes dh-). */
+@import "tailwindcss";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource/jetbrains-mono/500.css";
+
+/* ------------------------------------------------------------------ tokens por tema (tokens.json del sistema) */
+:root, [data-theme="light"] {
+  --fondo: #F8FAFC; --superficie: #FFFFFF; --superficie-alt: #EFF6FF; --linea: #DBE6F0; --borde-control: #748BA1;
+  --tinta: #081D35; --texto: #1E3A5F; --texto-suave: #5B7186; --enlace: #1E6194;
+  --accion: #1E6194; --accion-hover: #174E78; --on-accion: #FFFFFF; --foco: #1E6194;
+  --exito: #15803D; --peligro: #B91C1C;
+  --sombra-tarjeta: 0 24px 60px -24px rgba(30, 61, 89, 0.35);
+  --sombra-boton: 0 16px 32px -12px rgba(30, 97, 148, 0.85);
+  --sombra-nucleo: 0 24px 50px -18px rgba(22, 50, 77, 0.8);
+}
+[data-theme="dark"] {
+  --fondo: #081D35; --superficie: #0F2537; --superficie-alt: #16324D; --linea: #1E3D59; --borde-control: #6A819A;
+  --tinta: #FFFFFF; --texto: #DCE7F2; --texto-suave: #9FB4C8; --enlace: #93C5FD;
+  --accion: #93C5FD; --accion-hover: #BFDBFE; --on-accion: #081D35; --foco: #93C5FD;
+  --exito: #4ADE80; --peligro: #FCA5A5;
+  --sombra-tarjeta: 0 24px 60px -24px rgba(0, 0, 0, 0.6);
+  --sombra-boton: 0 16px 32px -12px rgba(0, 0, 0, 0.7);
+  --sombra-nucleo: 0 24px 50px -18px rgba(0, 0, 0, 0.8);
+  color: var(--texto);
+}
+
+@theme inline {
+  --font-display: "Bricolage Grotesque Variable", "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  /* fijos de la marca */
+  --color-marino: #011F51;
+  --color-azul: #1E6194;
+  --color-cielo: #4A90C2;
+  --color-celeste: #93C5FD;
+  --color-chispa: #FBBF24;
+  --color-on-chispa: #081D35;
+  --color-noche: #081D35;
+  --color-degradado-inicio: #16324D;
+  /* por tema */
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-superficie-alt: var(--superficie-alt);
+  --color-linea: var(--linea);
+  --color-borde-control: var(--borde-control);
+  --color-tinta: var(--tinta);
+  --color-texto: var(--texto);
+  --color-texto-suave: var(--texto-suave);
+  --color-enlace: var(--enlace);
+  --color-accion: var(--accion);
+  --color-accion-hover: var(--accion-hover);
+  --color-on-accion: var(--on-accion);
+  --color-exito: var(--exito);
+  --color-peligro: var(--peligro);
+  /* submarcas, solo como destinos del ecosistema (sus propios colores) */
+  --color-academy: #2B7CB3;
+  --color-academy-osc: #1E3D59;
+  --color-dv: #7b4dff;
+  --color-dv-osc: #5a30d6;
+  --color-dv-tinta: #1b1230;
+  --color-dv-oro: #ffd166;
+
+  --radius-sm: 13px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 32px;
+}
+
+/* ------------------------------------------------------------------ base */
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: #93C5FD; color: #081D35; }
+:focus-visible { outline: 2px solid var(--foco); outline-offset: 3px; border-radius: 10px; }
+img { max-width: 100%; }
+
+/* ------------------------------------------------------------------ componentes del sistema (dh-) */
+@layer components {
+  .dh-oscuro {
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(30, 97, 148, .45), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(74, 144, 194, .22), transparent 60%),
+      #081D35;
+    color: var(--texto);
+  }
+  .dh-trama { background-image: url("/marca/trama-oscura.svg"); background-size: 226px; }
+  .dh-trama-clara { background-image: url("/marca/trama-clara.svg"); background-size: 226px; }
+
+  .dh-kicker {
+    display: inline-flex; align-items: center; gap: .55rem;
+    font-family: var(--font-mono); font-weight: 500; font-size: 12px; line-height: 16px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--enlace);
+  }
+  .dh-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: #FBBF24; box-shadow: 0 0 0 4px rgba(251, 191, 36, .18); }
+
+  .dh-h1 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.025em; font-size: clamp(2.1rem, 4.2vw, 2.75rem); line-height: 1.14; color: var(--tinta); }
+  .dh-h2 { font-family: var(--font-display); font-weight: 650; letter-spacing: -0.02em; font-size: clamp(1.6rem, 3vw, 2rem); line-height: 1.2; color: var(--tinta); }
+  .dh-h3 { font-family: var(--font-display); font-weight: 650; letter-spacing: -0.015em; font-size: 22px; line-height: 28px; color: var(--tinta); }
+  .dh-lead { font-size: 19px; line-height: 30px; color: var(--texto-suave); max-width: 60ch; }
+  .dh-dato { font-family: var(--font-mono); font-weight: 500; font-size: 14px; line-height: 22px; }
+
+  .dh-btn {
+    position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 0 24px; border-radius: 999px; border: 2px solid transparent;
+    font-family: var(--font-sans); font-weight: 700; font-size: 15px; line-height: 16px; white-space: nowrap;
+    background: var(--accion); color: var(--on-accion); text-decoration: none; cursor: pointer;
+    transition: transform .25s ease-out, background-color .25s ease-out, box-shadow .25s ease-out;
+  }
+  .dh-btn:hover { background: var(--accion-hover); transform: translateY(-2px); box-shadow: var(--sombra-boton); }
+  .dh-btn .dh-flecha { transition: transform .25s ease-out; }
+  .dh-btn:hover .dh-flecha { transform: translateX(4px); }
+  .dh-btn.is-secundario { background: transparent; color: var(--tinta); border-color: var(--borde-control); }
+  .dh-btn.is-secundario:hover { background: var(--superficie-alt); box-shadow: none; }
+  .dh-btn.is-chispa { background: #FBBF24; color: #081D35; }
+  .dh-btn.is-chispa:hover { background: #fcd34d; }
+  .dh-btn.is-sm { min-height: 40px; padding: 0 18px; font-size: 14px; }
+  .dh-btn.is-texto { background: none; border: 0; padding: 0; min-height: 44px; color: var(--enlace); }
+  .dh-btn.is-texto:hover { transform: none; box-shadow: none; }
+
+  .dh-insignia {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px;
+    font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    background: var(--superficie-alt); color: var(--enlace);
+  }
+
+  .dh-tarjeta {
+    background: var(--superficie); border: 1.5px solid var(--linea); border-radius: var(--radius-lg);
+    transition: transform .3s ease-out, box-shadow .3s ease-out;
+  }
+  .dh-tarjeta.is-viva:hover { transform: translateY(-4px); box-shadow: var(--sombra-tarjeta); }
+
+  .dh-pilar-ico {
+    display: grid; place-items: center; width: 50px; height: 50px; flex-shrink: 0; border-radius: var(--radius-md);
+    background: linear-gradient(135deg, #16324D, #1E6194); color: #fff; box-shadow: var(--sombra-nucleo);
+  }
+
+  /* Campo con etiqueta flotante (dh-campo) */
+  .dh-campo { position: relative; display: block; }
+  .dh-campo > input, .dh-campo > select, .dh-campo > textarea {
+    width: 100%; box-sizing: border-box; padding: 22px 16px 8px; min-height: 56px; border-radius: var(--radius-sm);
+    border: 1.5px solid var(--borde-control); background: var(--superficie); color: var(--tinta);
+    font: 500 15px/22px var(--font-sans); outline: none; appearance: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .dh-campo > textarea { min-height: 120px; resize: vertical; }
+  .dh-campo > span {
+    position: absolute; left: 17px; top: 18px; font-size: 15px; color: var(--texto-suave); pointer-events: none;
+    transition: transform .2s ease-out, font-size .2s ease-out, top .2s ease-out;
+  }
+  .dh-campo > input:focus, .dh-campo > select:focus, .dh-campo > textarea:focus { border-color: var(--foco); box-shadow: 0 0 0 3px rgba(147, 197, 253, .35); }
+  .dh-campo > input:focus + span, .dh-campo > input:not(:placeholder-shown) + span,
+  .dh-campo > textarea:focus + span, .dh-campo > textarea:not(:placeholder-shown) + span,
+  .dh-campo > select + span { top: 7px; font-size: 12px; }
+  .dh-campo.is-error > input { border-color: var(--peligro); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

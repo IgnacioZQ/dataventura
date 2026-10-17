@@ -1,0 +1,59 @@
+{
+  "name": "Grade",
+  "type": "object",
+  "properties": {
+    "student_id": {
+      "type": "string",
+      "description": "ID del estudiante"
+    },
+    "student_email": {
+      "type": "string",
+      "description": "Email del estudiante"
+    },
+    "student_name": {
+      "type": "string",
+      "description": "Nombre del estudiante"
+    },
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "lesson_id": {
+      "type": "string",
+      "description": "ID de la lecci\u00f3n (opcional)"
+    },
+    "assignment_name": {
+      "type": "string",
+      "description": "Nombre de la tarea/evaluaci\u00f3n"
+    },
+    "grade": {
+      "type": "number",
+      "description": "Calificaci\u00f3n obtenida"
+    },
+    "max_grade": {
+      "type": "number",
+      "default": 100,
+      "description": "Calificaci\u00f3n m\u00e1xima posible"
+    },
+    "feedback": {
+      "type": "string",
+      "description": "Retroalimentaci\u00f3n del instructor"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor que calific\u00f3"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n adicional sobre la calificaci\u00f3n (hasta 1000 caracteres)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "student_id",
+    "student_email",
+    "course_id",
+    "assignment_name",
+    "grade"
+  ]
+}

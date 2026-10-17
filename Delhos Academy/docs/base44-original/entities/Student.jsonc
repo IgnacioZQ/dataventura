@@ -1,0 +1,175 @@
+{
+  "name": "Student",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nombre completo del estudiante"
+    },
+    "apellido": {
+      "type": "string",
+      "description": "Apellido del estudiante"
+    },
+    "nombre_completo": {
+      "type": "string",
+      "description": "Nombre completo (nombre + apellido)"
+    },
+    "email": {
+      "type": "string",
+      "description": "Correo electr\u00f3nico del estudiante"
+    },
+    "password": {
+      "type": "string",
+      "description": "Contrase\u00f1a temporal asignada"
+    },
+    "profile_image": {
+      "type": "string",
+      "description": "URL de la foto de perfil"
+    },
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso asignado"
+    },
+    "course_name": {
+      "type": "string",
+      "description": "Nombre del curso"
+    },
+    "instructor_email": {
+      "type": "string",
+      "description": "Email del instructor que lo agreg\u00f3"
+    },
+    "progress": {
+      "type": "number",
+      "default": 0,
+      "description": "Progreso del estudiante en porcentaje"
+    },
+    "points": {
+      "type": "number",
+      "default": 0,
+      "description": "Puntos acumulados"
+    },
+    "streak": {
+      "type": "number",
+      "default": 0,
+      "description": "Racha de asistencias consecutivas"
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Insignias obtenidas"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    },
+    "has_logged_in": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indica si el estudiante ha iniciado sesi\u00f3n al menos una vez"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Biograf\u00eda del estudiante"
+    },
+    "linkedin": {
+      "type": "string",
+      "description": "URL de perfil de LinkedIn"
+    },
+    "website": {
+      "type": "string",
+      "description": "Sitio web personal"
+    },
+    "specialties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u00c1reas de inter\u00e9s o especializaci\u00f3n"
+    },
+    "achievements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Logros y reconocimientos"
+    },
+    "certifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Certificaciones obtenidas"
+    },
+    "certificate_enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si el instructor habilit\u00f3 el certificado para descarga"
+    },
+    "certificate_hours": {
+      "type": "number",
+      "default": 40,
+      "description": "Horas cronol\u00f3gicas del certificado"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "course_id"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "data.instructor_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "data.instructor_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.email": "{{user.email}}"
+        },
+        {
+          "data.instructor_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

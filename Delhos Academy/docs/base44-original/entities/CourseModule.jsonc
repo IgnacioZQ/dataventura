@@ -1,0 +1,33 @@
+{
+  "name": "CourseModule",
+  "type": "object",
+  "properties": {
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso al que pertenece"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo del m\u00f3dulo"
+    },
+    "order": {
+      "type": "number",
+      "description": "Orden del m\u00f3dulo en el curso"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si el m\u00f3dulo est\u00e1 bloqueado para estudiantes"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n del m\u00f3dulo y su contenido (hasta 1000 caracteres)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "course_id",
+    "title",
+    "order"
+  ]
+}

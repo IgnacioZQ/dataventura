@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Dataventura: icono del Capitán NEXUS">
+  <title>Dataventura · Capitán NEXUS</title>
+  <rect width="1024" height="1024" fill="#7b4dff"/>
+  <circle cx="512" cy="468" r="372" fill="#9473ff"/>
+  <path d="M0 842 q64 -36 128 0 t128 0 t128 0 t128 0 t128 0 t128 0 t128 0 t128 0 V1024 H0Z" fill="#5a30d6"/>
+  <path d="M0 818 q64 -30 128 0 t128 0 t128 0 t128 0 t128 0 t128 0 t128 0 t128 0" fill="none" stroke="#b8a4f5" stroke-width="12" stroke-linecap="round" opacity=".65"/>
+  <g fill="#ffd166">
+    <path d="M176 262 l16 36 36 16 -36 16 -16 36 -16 -36 -36 -16 36 -16z"/>
+    <path d="M850 318 l11 25 25 11 -25 11 -11 25 -11 -25 -25 -11 25 -11z"/>
+  </g>
+  <g transform="translate(162 170) scale(5)">
+    <rect x="24" y="44" width="92" height="72" rx="34" fill="#fff" stroke="#1b1230" stroke-width="3.5"/>
+    <ellipse cx="97" cy="99" rx="6" ry="3.5" fill="#ff9db3"/><ellipse cx="43" cy="99" rx="6" ry="3.5" fill="#ff9db3"/>
+    <circle cx="23" cy="94" r="4" fill="#ffd166" stroke="#1b1230" stroke-width="1.8"/>
+    <path d="M27 64 L50 82" fill="none" stroke="#1b1230" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M56 76 Q86 62 114 68" fill="none" stroke="#1b1230" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="52" cy="84" r="13.5" fill="#1b1230"/>
+    <path d="M46 78 l1.8 4 4 1.8 -4 1.8 -1.8 4 -1.8 -4 -4 -1.8 4 -1.8z" fill="#a98bff"/>
+    <circle cx="88" cy="85" r="12.5" fill="#1b1230"/><circle cx="92.5" cy="80" r="4.6" fill="#fff"/><circle cx="84.5" cy="91" r="2.2" fill="#fff"/>
+    <path d="M80 69 Q88 66 96 69" fill="none" stroke="#1b1230" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M62 101 Q78 120 94 101" fill="none" stroke="#1b1230" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M14 58 L2 46 L20 48Z" fill="#1b1230" stroke="#1b1230" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M126 58 L138 46 L120 48Z" fill="#1b1230" stroke="#1b1230" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M10 60 Q8 34 30 22 Q48 8 70 8 Q92 8 110 22 Q132 34 130 60 Q112 50 70 50 Q28 50 10 60Z" fill="#1b1230" stroke="#1b1230" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M15 54 Q70 43 125 54" fill="none" stroke="#7b4dff" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M34 28 Q50 16 70 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".18"/>
+    <path d="M52 37 L88 45 M88 37 L52 45" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="52" cy="37" r="3" fill="#fff"/><circle cx="88" cy="45" r="3" fill="#fff"/><circle cx="88" cy="37" r="3" fill="#fff"/><circle cx="52" cy="45" r="3" fill="#fff"/>
+    <circle cx="70" cy="24" r="11" fill="#fff"/><rect x="63.5" y="30" width="13" height="8" rx="2.5" fill="#fff"/>
+    <circle cx="65.5" cy="24" r="3" fill="#1b1230"/><circle cx="74.5" cy="24" r="3" fill="#1b1230"/><path d="M70 28 l-1.6 3 h3.2z" fill="#1b1230"/>
+    <path d="M67 34 v4 M70 34 v4 M73 34 v4" stroke="#1b1230" stroke-width="1.3"/>
+  </g>
+</svg>

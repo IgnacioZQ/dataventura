@@ -1,0 +1,897 @@
+{
+ "es": {
+  "siteLang": "IDIOMA DEL SITIO:",
+  "langName": "ESPAÑOL",
+  "logoAria": "Dataventura, inicio",
+  "closeMenu": "Cerrar menú",
+  "startShort": "EMPIEZA GRATIS",
+  "eyebrow": "DATAVENTURA · PIENSA CON DATOS",
+  "heroWords": [
+   "Entrena",
+   "tu",
+   "mente",
+   "analítica",
+   "jugando."
+  ],
+  "heroAccent": [
+   2,
+   3
+  ],
+  "heroSub": "Retos cortos con datos de la vida real, sin código y guiados por el Capitán NEXUS. Unos minutos al día bastan.",
+  "start": "EMPIEZA GRATIS",
+  "have": "YA TENGO UNA CUENTA",
+  "tapHint": "TOCA A NEXUS",
+  "trust": [
+   "Sin código",
+   "5 min al día",
+   "Para estudiantes y profesionales"
+  ],
+  "bubbles": [
+   "¡Ahoy! Soy el Capitán NEXUS.",
+   "¿Zarpamos hacia la Isla del Origen?",
+   "¡Cada acierto suma gemas al cofre!",
+   "Mmm… ¿eso es tendencia o estacionalidad?",
+   "¡Uy! Hasta los capitanes se equivocan."
+  ],
+  "chipStreak": "racha de {n} días",
+  "chipGems": "+10 gemas",
+  "marquee": [
+   "Leer gráficos",
+   "Tendencias",
+   "Estacionalidad",
+   "Anomalías",
+   "Mediana",
+   "Correlación ≠ causa",
+   "Elegir el gráfico correcto",
+   "Pasos de un análisis"
+  ],
+  "f1pill": "APRENDE JUGANDO",
+  "f1h": "divertido. efectivo. gratis para empezar.",
+  "f1p": "Entrenar tu mente analítica con Dataventura se siente como un juego: retos cortos, alternativas claras y el Capitán NEXUS celebrando cada acierto contigo. Las primeras etapas son gratis.",
+  "f1q": "¿Qué gráfico muestra mejor una evolución en el tiempo?",
+  "f1a": [
+   "Torta",
+   "Líneas"
+  ],
+  "f1ok": "¡Excelente!",
+  "f1bad": "La torta es para partes de un total. ¡Prueba otra!",
+  "f2pill": "SIN FÓRMULAS",
+  "f2h": "cero código, puro razonamiento",
+  "f2p": "No necesitas Excel, Python ni fórmulas. Aprendes a mirar un gráfico, hacer la pregunta correcta y llegar a una conclusión que se sostiene sola.",
+  "f2quote": "“El jueves despegó.”",
+  "f2hint": "PASA EL CURSOR O TOCA",
+  "f3pill": "MANOS EN LOS DATOS",
+  "f3h": "gráficos que se tocan",
+  "f3p": "Mueve, compara y toca las barras. Los retos interactivos te ponen a trabajar con los datos en vez de solo mirarlos, y así se te quedan.",
+  "f3q": "¿Hasta dónde llegarán las ventas en diciembre?",
+  "f3label": "Tu predicción para diciembre",
+  "months": [
+   "AGO",
+   "SEP",
+   "OCT",
+   "NOV",
+   "DIC"
+  ],
+  "f3start": "Mueve el control para hacer tu predicción.",
+  "f3good": "¡Buen rumbo! Sigues la tendencia.",
+  "f3high": "Muy optimista: la tendencia no sube tanto.",
+  "f3low": "Muy bajo: las ventas vienen subiendo.",
+  "f4pill": "HÁBITO DIARIO",
+  "f4h": "sigue con viento a favor",
+  "f4p": "Rachas, gemas, ligas semanales y metas pequeñas. Cinco minutos al día bastan para que pensar con datos se vuelva un hábito.",
+  "f4streak": "DÍAS DE RACHA",
+  "f4tap": "Toca los días para completar tu semana",
+  "dayL": [
+   "L",
+   "M",
+   "M",
+   "J",
+   "V",
+   "S",
+   "D"
+  ],
+  "stPill": "5 ETAPAS",
+  "stH": "de aprendiz a senior",
+  "stP": "Avanzas a tu ritmo por cinco etapas. Cada una sube un poco la dificultad para que no te aburras ni te frustres.",
+  "st": {
+   "diffLabel": "DIFICULTAD",
+   "stages": [
+    [
+     "Aprendiz",
+     "ETAPA 1 · MUY FÁCIL",
+     "Tus primeros pasos: leer un gráfico o una tabla y entender qué te está diciendo."
+    ],
+    [
+     "Explorador",
+     "ETAPA 2 · FÁCIL",
+     "Comparas, ordenas y empiezas a ver patrones donde antes solo había números."
+    ],
+    [
+     "Intérprete",
+     "ETAPA 3 · MEDIANA",
+     "Tendencias, estacionalidad y medidas centrales: traduces datos en frases claras."
+    ],
+    [
+     "Estratega",
+     "ETAPA 4 · DIFÍCIL",
+     "Separas correlación de causa y decides qué hacer con lo que encontraste."
+    ],
+    [
+     "Senior",
+     "ETAPA 5 · EXPERTA",
+     "Retos con trampa, datos raros y conclusiones que tienes que defender."
+    ]
+   ]
+  },
+  "quizTag": "PRUÉBALO",
+  "quizH": "resuelve tu primer reto",
+  "quizQ1": "Visitas a una tienda online durante la semana. ¿Qué día tuvo el ",
+  "quizQem": "mayor crecimiento",
+  "quizQ2": " respecto al día anterior?",
+  "barD": [
+   "Lun",
+   "Mar",
+   "Mié",
+   "Jue",
+   "Vie",
+   "Sáb",
+   "Dom"
+  ],
+  "quizO": [
+   "Sábado",
+   "Jueves",
+   "Viernes",
+   "Domingo"
+  ],
+  "check": "COMPROBAR",
+  "again": "OTRA VEZ",
+  "hint": "Elige una alternativa y comprueba tu respuesta.",
+  "rightT": "¡Bien pensado!",
+  "rightP": "El sábado tiene más visitas, pero el salto más grande fue el jueves: +62.",
+  "wrongT": "Casi…",
+  "wrongP": "Ojo: no buscamos el valor más alto, sino la mayor subida. Fue el jueves (+62).",
+  "quizNote": "Así son los retos en la app: datos de la vida diaria, sin fórmulas.",
+  "dlPill": "SIN TIENDAS, SIN ESPERAS",
+  "dlH": "llévala en tu bolsillo",
+  "dlP": "Dataventura funciona directo en tu navegador. Instálala en la pantalla de inicio en segundos y úsala como cualquier otra app.",
+  "open": "ABRIR DATAVENTURA",
+  "installH": "Cómo instalarla",
+  "tabL": [
+   "iPhone",
+   "Android",
+   "Computador"
+  ],
+  "tabSteps": [
+   [
+    "Abre Dataventura en Safari.",
+    "Toca el botón Compartir.",
+    "Elige «Agregar a pantalla de inicio»."
+   ],
+   [
+    "Abre Dataventura en Chrome.",
+    "Toca el menú ⋮ de arriba a la derecha.",
+    "Elige «Instalar app» o «Agregar a la pantalla principal»."
+   ],
+   [
+    "Abre Dataventura en Chrome o Edge.",
+    "Haz clic en el ícono de instalar de la barra de direcciones.",
+    "Confirma con «Instalar»."
+   ]
+  ],
+  "qr": "Escanea para abrirla en tu celular",
+  "qrAlt": "Código QR para abrir Dataventura",
+  "phoneAlt": "Pantalla de Dataventura: el mapa de islas con el Capitán NEXUS",
+  "badgeOk": "¡Correcto!",
+  "ctaH1": "piensa con datos.",
+  "ctaH2": "zarpa con Dataventura.",
+  "vidPill": "VIDEO TUTORIAL",
+  "vidH": "instálala en 10 segundos",
+  "vidP": "Mira cómo dejar Dataventura en la pantalla de inicio de tu celular, paso a paso, guiado por el Capitán NEXUS.",
+  "vidAria": "Video: cómo agregar Dataventura a la pantalla de inicio en 3 pasos",
+  "vidNote": "",
+  "foot": [
+   {
+    "h": "Sobre Dataventura",
+    "l": [
+     "Quiénes somos",
+     "Cómo enseñamos",
+     "Contacto"
+    ]
+   },
+   {
+    "h": "Aprende",
+    "l": [
+     "Las 5 etapas",
+     "Reto del día",
+     "Abrir la app"
+    ]
+   },
+   {
+    "h": "Ayuda",
+    "l": [
+     "Preguntas frecuentes",
+     "Soporte"
+    ]
+   },
+   {
+    "h": "Legal",
+    "l": [
+     "Privacidad",
+     "Términos de uso"
+    ]
+   },
+   {
+    "h": "Síguenos",
+    "l": [
+     "Instagram",
+     "TikTok",
+     "LinkedIn"
+    ]
+   }
+  ],
+  "copy": "© 2026 Dataventura · Hecho en Chile",
+  "paginas": {
+   "quienes": {
+    "back": "Volver a Dataventura",
+    "h1": "Quiénes somos",
+    "lead": "Dataventura nace de una idea simple: cualquier persona puede aprender a pensar con datos, sin programar ni dominar fórmulas.",
+    "body": "Creamos una app de retos cortos, guiada por el Capitán NEXUS, para entrenar el pensamiento analítico unos minutos al día: leer gráficos, detectar patrones y llegar a conclusiones que se sostienen. Queremos que entender datos deje de ser cosa de especialistas y se vuelva una habilidad cotidiana.",
+    "values": [
+     {
+      "h": "Gratis para empezar",
+      "p": "Nadie debería quedarse fuera por no poder pagar."
+     },
+     {
+      "h": "Cero código",
+      "p": "Razonamiento primero; las herramientas vienen después."
+     },
+     {
+      "h": "Aprender jugando",
+      "p": "Retos cortos, rachas y un capitán que celebra contigo."
+     }
+    ],
+    "teamH": "Quién está detrás",
+    "teamName": "Delhos",
+    "teamBio": "Dataventura es un producto de Delhos, un ecosistema que une educación, tecnología e innovación. Los certificados los emite Delhos Academy."
+   },
+   "como": {
+    "back": "Volver a Dataventura",
+    "h1": "Cómo enseñamos",
+    "lead": "Poco a poco, todos los días y con datos de la vida real. Así se entrena una mente analítica.",
+    "steps": [
+     [
+      "Retos de 8 tipos",
+      "Eliges una alternativa, tocas el dato raro en un gráfico, unes pares, ordenas los pasos de un análisis, clasificas, marcas varias respuestas, decides si algo es verdadero o falso o escribes un número."
+     ],
+     [
+      "Un mapa de islas",
+      "Avanzas por 20 mapas de 5 islas. El primero, el Archipiélago del Origen, te lleva por la Isla del Origen, la de los Ecos, la de las Anomalías, la de los Espejos y la de la Brújula."
+     ],
+     [
+      "Repaso espaciado",
+      "Cada acierto alarga el siguiente repaso (1, 3, 7 y 14 días). Un error lo devuelve al inicio, para que lo practiques hasta dominarlo."
+     ],
+     [
+      "Una pista y una explicación en cada reto",
+      "El Capitán NEXUS te da una pista si la necesitas y te explica el porqué de cada respuesta, aciertes o no."
+     ],
+     [
+      "Motivación que se nota",
+      "Rachas diarias, gemas, liga semanal y una meta a tu medida: 3, 5 o 10 minutos al día."
+     ]
+    ]
+   },
+   "contacto": {
+    "back": "Volver a Dataventura",
+    "h1": "Contacto",
+    "lead": "¿Tienes una idea, encontraste un error o quieres llevar Dataventura a tu curso? ¡Escríbenos!",
+    "mailH": "CORREO",
+    "mailP": "Respondemos lo antes posible.",
+    "socialH": "REDES",
+    "whyH": "Puedes escribirnos para…",
+    "why": [
+     "Reportar un error en un reto o en la app",
+     "Proponer nuevos retos o temas",
+     "Colaborar o usar Dataventura en clases"
+    ]
+   }
+  }
+ },
+ "en": {
+  "siteLang": "SITE LANGUAGE:",
+  "langName": "ENGLISH",
+  "logoAria": "Dataventura, home",
+  "closeMenu": "Close menu",
+  "startShort": "START FREE",
+  "eyebrow": "DATAVENTURA · THINK WITH DATA",
+  "heroWords": [
+   "Train",
+   "your",
+   "analytical",
+   "mind",
+   "by",
+   "playing."
+  ],
+  "heroAccent": [
+   2,
+   3
+  ],
+  "heroSub": "Short challenges with real-life data, no code, guided by Captain NEXUS. A few minutes a day is enough.",
+  "start": "START FOR FREE",
+  "have": "I ALREADY HAVE AN ACCOUNT",
+  "tapHint": "TAP NEXUS",
+  "trust": [
+   "No code",
+   "5 min a day",
+   "For students and professionals"
+  ],
+  "bubbles": [
+   "Ahoy! I’m Captain NEXUS.",
+   "Shall we set sail for the Isle of Origin?",
+   "Every right answer adds gems to the chest!",
+   "Hmm… is that a trend or seasonality?",
+   "Oops! Even captains get it wrong."
+  ],
+  "chipStreak": "{n}-day streak",
+  "chipGems": "+10 gems",
+  "marquee": [
+   "Reading charts",
+   "Trends",
+   "Seasonality",
+   "Anomalies",
+   "Median",
+   "Correlation ≠ causation",
+   "Picking the right chart",
+   "Steps of an analysis"
+  ],
+  "f1pill": "LEARN BY PLAYING",
+  "f1h": "fun. effective. free to start.",
+  "f1p": "Training your analytical mind with Dataventura feels like a game: short challenges, clear choices and Captain NEXUS cheering every right answer with you. The first stages are free.",
+  "f1q": "Which chart best shows change over time?",
+  "f1a": [
+   "Pie",
+   "Line"
+  ],
+  "f1ok": "Excellent!",
+  "f1bad": "Pie charts show parts of a whole. Try again!",
+  "f2pill": "NO FORMULAS",
+  "f2h": "zero code, pure reasoning",
+  "f2p": "No Excel, Python or formulas needed. You learn to read a chart, ask the right question and reach a conclusion that holds up on its own.",
+  "f2quote": "“Thursday took off.”",
+  "f2hint": "HOVER OR TAP",
+  "f3pill": "HANDS ON DATA",
+  "f3h": "charts you can touch",
+  "f3p": "Move, compare and tap the bars. Interactive challenges put you to work with the data instead of just looking at it, so it sticks.",
+  "f3q": "How high will sales go in December?",
+  "f3label": "Your December prediction",
+  "months": [
+   "AUG",
+   "SEP",
+   "OCT",
+   "NOV",
+   "DEC"
+  ],
+  "f3start": "Move the slider to make your prediction.",
+  "f3good": "Right on course! You’re following the trend.",
+  "f3high": "Too optimistic: the trend doesn’t climb that fast.",
+  "f3low": "Too low: sales have been going up.",
+  "f4pill": "DAILY HABIT",
+  "f4h": "keep the wind at your back",
+  "f4p": "Streaks, gems, weekly leagues and small goals. Five minutes a day is enough to turn thinking with data into a habit.",
+  "f4streak": "DAY STREAK",
+  "f4tap": "Tap the days to complete your week",
+  "dayL": [
+   "M",
+   "T",
+   "W",
+   "T",
+   "F",
+   "S",
+   "S"
+  ],
+  "stPill": "5 STAGES",
+  "stH": "from apprentice to senior",
+  "stP": "You move at your own pace through five stages. Each one raises the difficulty a little, so you never get bored or frustrated.",
+  "st": {
+   "diffLabel": "DIFFICULTY",
+   "stages": [
+    [
+     "Apprentice",
+     "STAGE 1 · VERY EASY",
+     "Your first steps: read a chart or a table and understand what it’s telling you."
+    ],
+    [
+     "Explorer",
+     "STAGE 2 · EASY",
+     "You compare, sort and start seeing patterns where there used to be only numbers."
+    ],
+    [
+     "Interpreter",
+     "STAGE 3 · MEDIUM",
+     "Trends, seasonality and averages: you turn data into clear sentences."
+    ],
+    [
+     "Strategist",
+     "STAGE 4 · HARD",
+     "You tell correlation from causation and decide what to do with what you found."
+    ],
+    [
+     "Senior",
+     "STAGE 5 · EXPERT",
+     "Trick questions, odd data and conclusions you have to defend."
+    ]
+   ]
+  },
+  "quizTag": "TRY IT",
+  "quizH": "solve your first challenge",
+  "quizQ1": "Visits to an online store over one week. Which day had the ",
+  "quizQem": "biggest growth",
+  "quizQ2": " compared with the day before?",
+  "barD": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "quizO": [
+   "Saturday",
+   "Thursday",
+   "Friday",
+   "Sunday"
+  ],
+  "check": "CHECK",
+  "again": "TRY AGAIN",
+  "hint": "Pick an answer and check it.",
+  "rightT": "Well reasoned!",
+  "rightP": "Saturday has the most visits, but the biggest jump was Thursday: +62.",
+  "wrongT": "Almost…",
+  "wrongP": "Careful: we want the biggest rise, not the highest value. It was Thursday (+62).",
+  "quizNote": "This is what challenges look like in the app: everyday data, no formulas.",
+  "dlPill": "NO STORES, NO WAITING",
+  "dlH": "take it in your pocket",
+  "dlP": "Dataventura runs right in your browser. Install it on your home screen in seconds and use it like any other app.",
+  "open": "OPEN DATAVENTURA",
+  "installH": "How to install it",
+  "tabL": [
+   "iPhone",
+   "Android",
+   "Computer"
+  ],
+  "tabSteps": [
+   [
+    "Open Dataventura in Safari.",
+    "Tap the Share button.",
+    "Choose “Add to Home Screen”."
+   ],
+   [
+    "Open Dataventura in Chrome.",
+    "Tap the ⋮ menu at the top right.",
+    "Choose “Install app” or “Add to Home screen”."
+   ],
+   [
+    "Open Dataventura in Chrome or Edge.",
+    "Click the install icon in the address bar.",
+    "Confirm with “Install”."
+   ]
+  ],
+  "qr": "Scan to open it on your phone",
+  "qrAlt": "QR code to open Dataventura",
+  "phoneAlt": "Dataventura screen: the island map with Captain NEXUS",
+  "badgeOk": "Correct!",
+  "ctaH1": "think with data.",
+  "ctaH2": "set sail with Dataventura.",
+  "vidPill": "VIDEO TUTORIAL",
+  "vidH": "install it in 10 seconds",
+  "vidP": "See how to put Dataventura on your phone’s home screen, step by step, guided by Captain NEXUS.",
+  "vidAria": "Video: how to add Dataventura to your home screen in 3 steps",
+  "vidNote": "The video is in Spanish.",
+  "foot": [
+   {
+    "h": "About Dataventura",
+    "l": [
+     "About us",
+     "How we teach",
+     "Contact"
+    ]
+   },
+   {
+    "h": "Learn",
+    "l": [
+     "The 5 stages",
+     "Daily challenge",
+     "Open the app"
+    ]
+   },
+   {
+    "h": "Help",
+    "l": [
+     "FAQ",
+     "Support"
+    ]
+   },
+   {
+    "h": "Legal",
+    "l": [
+     "Privacy",
+     "Terms of use"
+    ]
+   },
+   {
+    "h": "Follow us",
+    "l": [
+     "Instagram",
+     "TikTok",
+     "LinkedIn"
+    ]
+   }
+  ],
+  "copy": "© 2026 Dataventura · Made in Chile",
+  "paginas": {
+   "quienes": {
+    "back": "Back to Dataventura",
+    "h1": "About us",
+    "lead": "Dataventura was born from a simple idea: anyone can learn to think with data, without coding or mastering formulas.",
+    "body": "We built an app of short challenges, guided by Captain NEXUS, to train analytical thinking a few minutes a day: reading charts, spotting patterns and reaching conclusions that hold up. We want understanding data to stop being a specialist thing and become an everyday skill.",
+    "values": [
+     {
+      "h": "Free to start",
+      "p": "Nobody should be left out because they can’t pay."
+     },
+     {
+      "h": "Zero code",
+      "p": "Reasoning first; tools come later."
+     },
+     {
+      "h": "Learn by playing",
+      "p": "Short challenges, streaks and a captain who cheers with you."
+     }
+    ],
+    "teamH": "Who is behind it",
+    "teamName": "Delhos",
+    "teamBio": "Dataventura is a product by Delhos, an ecosystem that brings together education, technology and innovation. Certificates are issued by Delhos Academy."
+   },
+   "como": {
+    "back": "Back to Dataventura",
+    "h1": "How we teach",
+    "lead": "Little by little, every day, with real-life data. That’s how you train an analytical mind.",
+    "steps": [
+     [
+      "Challenges in 8 formats",
+      "Pick an answer, tap the odd data point on a chart, match pairs, put the steps of an analysis in order, classify, select several answers, decide true or false or type a number."
+     ],
+     [
+      "An island map",
+      "You sail across 20 maps of 5 islands each. The first one, the Archipelago of Origin, takes you through the Isles of Origin, Echoes, Anomalies, Mirrors and the Compass."
+     ],
+     [
+      "Spaced review",
+      "Every right answer pushes the next review further out (1, 3, 7 and 14 days). A mistake sends it back to the start, so you practise until you master it."
+     ],
+     [
+      "A hint and an explanation in every challenge",
+      "Captain NEXUS gives you a hint when you need it and explains the why behind every answer, right or wrong."
+     ],
+     [
+      "Motivation you can feel",
+      "Daily streaks, gems, a weekly league and a goal that fits you: 3, 5 or 10 minutes a day."
+     ]
+    ]
+   },
+   "contacto": {
+    "back": "Back to Dataventura",
+    "h1": "Contact",
+    "lead": "Got an idea, found a bug or want to bring Dataventura to your class? Write to us!",
+    "mailH": "EMAIL",
+    "mailP": "We reply as soon as we can.",
+    "socialH": "SOCIAL",
+    "whyH": "You can write to us to…",
+    "why": [
+     "Report a bug in a challenge or the app",
+     "Suggest new challenges or topics",
+     "Partner with us or use Dataventura in class"
+    ]
+   }
+  }
+ },
+ "pt": {
+  "siteLang": "IDIOMA DO SITE:",
+  "langName": "PORTUGUÊS",
+  "logoAria": "Dataventura, início",
+  "closeMenu": "Fechar menu",
+  "startShort": "COMECE GRÁTIS",
+  "eyebrow": "DATAVENTURA · PENSE COM DADOS",
+  "heroWords": [
+   "Treine",
+   "sua",
+   "mente",
+   "analítica",
+   "jogando."
+  ],
+  "heroAccent": [
+   2,
+   3
+  ],
+  "heroSub": "Desafios curtos com dados da vida real, sem código e guiados pelo Capitão NEXUS. Alguns minutos por dia bastam.",
+  "start": "COMECE GRÁTIS",
+  "have": "JÁ TENHO UMA CONTA",
+  "tapHint": "TOQUE NO NEXUS",
+  "trust": [
+   "Sem código",
+   "5 min por dia",
+   "Para estudantes e profissionais"
+  ],
+  "bubbles": [
+   "Ahoy! Eu sou o Capitão NEXUS.",
+   "Vamos zarpar rumo à Ilha da Origem?",
+   "Cada acerto soma gemas ao baú!",
+   "Hmm… isso é tendência ou sazonalidade?",
+   "Opa! Até os capitães erram."
+  ],
+  "chipStreak": "ofensiva de {n} dias",
+  "chipGems": "+10 gemas",
+  "marquee": [
+   "Ler gráficos",
+   "Tendências",
+   "Sazonalidade",
+   "Anomalias",
+   "Mediana",
+   "Correlação ≠ causa",
+   "Escolher o gráfico certo",
+   "Etapas de uma análise"
+  ],
+  "f1pill": "APRENDA JOGANDO",
+  "f1h": "divertido. eficaz. grátis para começar.",
+  "f1p": "Treinar sua mente analítica com o Dataventura parece um jogo: desafios curtos, alternativas claras e o Capitão NEXUS comemorando cada acerto com você. As primeiras etapas são grátis.",
+  "f1q": "Qual gráfico mostra melhor uma evolução no tempo?",
+  "f1a": [
+   "Pizza",
+   "Linhas"
+  ],
+  "f1ok": "Excelente!",
+  "f1bad": "O gráfico de pizza é para partes de um todo. Tente de novo!",
+  "f2pill": "SEM FÓRMULAS",
+  "f2h": "zero código, puro raciocínio",
+  "f2p": "Você não precisa de Excel, Python nem fórmulas. Aprende a olhar um gráfico, fazer a pergunta certa e chegar a uma conclusão que se sustenta sozinha.",
+  "f2quote": "“Na quinta disparou.”",
+  "f2hint": "PASSE O CURSOR OU TOQUE",
+  "f3pill": "MÃO NOS DADOS",
+  "f3h": "gráficos que dá para tocar",
+  "f3p": "Mova, compare e toque nas barras. Os desafios interativos colocam você para trabalhar com os dados em vez de só olhar, e assim eles ficam na memória.",
+  "f3q": "Até onde as vendas vão chegar em dezembro?",
+  "f3label": "Sua previsão para dezembro",
+  "months": [
+   "AGO",
+   "SET",
+   "OUT",
+   "NOV",
+   "DEZ"
+  ],
+  "f3start": "Mova o controle para fazer sua previsão.",
+  "f3good": "Bom rumo! Você seguiu a tendência.",
+  "f3high": "Otimista demais: a tendência não sobe tanto.",
+  "f3low": "Baixo demais: as vendas vêm subindo.",
+  "f4pill": "HÁBITO DIÁRIO",
+  "f4h": "siga com vento a favor",
+  "f4p": "Ofensivas, gemas, ligas semanais e metas pequenas. Cinco minutos por dia bastam para que pensar com dados vire um hábito.",
+  "f4streak": "DIAS DE OFENSIVA",
+  "f4tap": "Toque nos dias para completar sua semana",
+  "dayL": [
+   "S",
+   "T",
+   "Q",
+   "Q",
+   "S",
+   "S",
+   "D"
+  ],
+  "stPill": "5 ETAPAS",
+  "stH": "de aprendiz a sênior",
+  "stP": "Você avança no seu ritmo por cinco etapas. Cada uma aumenta um pouco a dificuldade para você não se entediar nem se frustrar.",
+  "st": {
+   "diffLabel": "DIFICULDADE",
+   "stages": [
+    [
+     "Aprendiz",
+     "ETAPA 1 · MUITO FÁCIL",
+     "Seus primeiros passos: ler um gráfico ou uma tabela e entender o que ele diz."
+    ],
+    [
+     "Explorador",
+     "ETAPA 2 · FÁCIL",
+     "Você compara, ordena e começa a ver padrões onde antes só havia números."
+    ],
+    [
+     "Intérprete",
+     "ETAPA 3 · MÉDIA",
+     "Tendências, sazonalidade e medidas centrais: você traduz dados em frases claras."
+    ],
+    [
+     "Estrategista",
+     "ETAPA 4 · DIFÍCIL",
+     "Você separa correlação de causa e decide o que fazer com o que encontrou."
+    ],
+    [
+     "Sênior",
+     "ETAPA 5 · ESPECIALISTA",
+     "Desafios com pegadinha, dados estranhos e conclusões que você precisa defender."
+    ]
+   ]
+  },
+  "quizTag": "EXPERIMENTE",
+  "quizH": "resolva seu primeiro desafio",
+  "quizQ1": "Visitas a uma loja online durante a semana. Qual dia teve o ",
+  "quizQem": "maior crescimento",
+  "quizQ2": " em relação ao dia anterior?",
+  "barD": [
+   "Seg",
+   "Ter",
+   "Qua",
+   "Qui",
+   "Sex",
+   "Sáb",
+   "Dom"
+  ],
+  "quizO": [
+   "Sábado",
+   "Quinta",
+   "Sexta",
+   "Domingo"
+  ],
+  "check": "VERIFICAR",
+  "again": "DE NOVO",
+  "hint": "Escolha uma alternativa e verifique sua resposta.",
+  "rightT": "Bem pensado!",
+  "rightP": "O sábado tem mais visitas, mas o maior salto foi na quinta: +62.",
+  "wrongT": "Quase…",
+  "wrongP": "Atenção: não buscamos o maior valor, e sim a maior subida. Foi na quinta (+62).",
+  "quizNote": "Assim são os desafios no app: dados do dia a dia, sem fórmulas.",
+  "dlPill": "SEM LOJAS, SEM ESPERA",
+  "dlH": "leve no seu bolso",
+  "dlP": "O Dataventura funciona direto no navegador. Instale na tela inicial em segundos e use como qualquer outro app.",
+  "open": "ABRIR O DATAVENTURA",
+  "installH": "Como instalar",
+  "tabL": [
+   "iPhone",
+   "Android",
+   "Computador"
+  ],
+  "tabSteps": [
+   [
+    "Abra o Dataventura no Safari.",
+    "Toque no botão Compartilhar.",
+    "Escolha «Adicionar à Tela de Início»."
+   ],
+   [
+    "Abra o Dataventura no Chrome.",
+    "Toque no menu ⋮ no canto superior direito.",
+    "Escolha «Instalar app» ou «Adicionar à tela inicial»."
+   ],
+   [
+    "Abra o Dataventura no Chrome ou Edge.",
+    "Clique no ícone de instalar na barra de endereços.",
+    "Confirme com «Instalar»."
+   ]
+  ],
+  "qr": "Escaneie para abrir no celular",
+  "qrAlt": "Código QR para abrir o Dataventura",
+  "phoneAlt": "Tela do Dataventura: o mapa de ilhas com o Capitão NEXUS",
+  "badgeOk": "Correto!",
+  "ctaH1": "pense com dados.",
+  "ctaH2": "zarpe com o Dataventura.",
+  "vidPill": "VÍDEO TUTORIAL",
+  "vidH": "instale em 10 segundos",
+  "vidP": "Veja como deixar o Dataventura na tela inicial do seu celular, passo a passo, guiado pelo Capitão NEXUS.",
+  "vidAria": "Vídeo: como adicionar o Dataventura à tela inicial em 3 passos",
+  "vidNote": "O vídeo está em espanhol.",
+  "foot": [
+   {
+    "h": "Sobre o Dataventura",
+    "l": [
+     "Quem somos",
+     "Como ensinamos",
+     "Contato"
+    ]
+   },
+   {
+    "h": "Aprenda",
+    "l": [
+     "As 5 etapas",
+     "Desafio do dia",
+     "Abrir o app"
+    ]
+   },
+   {
+    "h": "Ajuda",
+    "l": [
+     "Perguntas frequentes",
+     "Suporte"
+    ]
+   },
+   {
+    "h": "Legal",
+    "l": [
+     "Privacidade",
+     "Termos de uso"
+    ]
+   },
+   {
+    "h": "Siga-nos",
+    "l": [
+     "Instagram",
+     "TikTok",
+     "LinkedIn"
+    ]
+   }
+  ],
+  "copy": "© 2026 Dataventura · Feito no Chile",
+  "paginas": {
+   "quienes": {
+    "back": "Voltar ao Dataventura",
+    "h1": "Quem somos",
+    "lead": "O Dataventura nasceu de uma ideia simples: qualquer pessoa pode aprender a pensar com dados, sem programar nem dominar fórmulas.",
+    "body": "Criamos um app de desafios curtos, guiado pelo Capitão NEXUS, para treinar o pensamento analítico alguns minutos por dia: ler gráficos, detectar padrões e chegar a conclusões que se sustentam. Queremos que entender dados deixe de ser coisa de especialista e vire uma habilidade do dia a dia.",
+    "values": [
+     {
+      "h": "Grátis para começar",
+      "p": "Ninguém deveria ficar de fora por não poder pagar."
+     },
+     {
+      "h": "Zero código",
+      "p": "Raciocínio primeiro; as ferramentas vêm depois."
+     },
+     {
+      "h": "Aprender jogando",
+      "p": "Desafios curtos, ofensivas e um capitão que comemora com você."
+     }
+    ],
+    "teamH": "Quem está por trás",
+    "teamName": "Delhos",
+    "teamBio": "O Dataventura é um produto da Delhos, um ecossistema que une educação, tecnologia e inovação. Os certificados são emitidos pela Delhos Academy."
+   },
+   "como": {
+    "back": "Voltar ao Dataventura",
+    "h1": "Como ensinamos",
+    "lead": "Pouco a pouco, todos os dias e com dados da vida real. É assim que se treina uma mente analítica.",
+    "steps": [
+     [
+      "Desafios de 8 tipos",
+      "Você escolhe uma alternativa, toca no dado estranho de um gráfico, liga pares, ordena as etapas de uma análise, classifica, marca várias respostas, decide se é verdadeiro ou falso ou digita um número."
+     ],
+     [
+      "Um mapa de ilhas",
+      "Você navega por 20 mapas de 5 ilhas. O primeiro, o Arquipélago da Origem, passa pelas ilhas da Origem, dos Ecos, das Anomalias, dos Espelhos e da Bússola."
+     ],
+     [
+      "Revisão espaçada",
+      "Cada acerto adia a próxima revisão (1, 3, 7 e 14 dias). Um erro a leva de volta ao início, para você praticar até dominar."
+     ],
+     [
+      "Uma dica e uma explicação em cada desafio",
+      "O Capitão NEXUS dá uma dica quando você precisa e explica o porquê de cada resposta, acertando ou não."
+     ],
+     [
+      "Motivação que dá para sentir",
+      "Ofensivas diárias, gemas, liga semanal e uma meta do seu tamanho: 3, 5 ou 10 minutos por dia."
+     ]
+    ]
+   },
+   "contacto": {
+    "back": "Voltar ao Dataventura",
+    "h1": "Contato",
+    "lead": "Tem uma ideia, encontrou um erro ou quer levar o Dataventura para sua turma? Escreva para nós!",
+    "mailH": "E-MAIL",
+    "mailP": "Respondemos o quanto antes.",
+    "socialH": "REDES",
+    "whyH": "Você pode nos escrever para…",
+    "why": [
+     "Relatar um erro em um desafio ou no app",
+     "Sugerir novos desafios ou temas",
+     "Colaborar ou usar o Dataventura em aula"
+    ]
+   }
+  }
+ }
+}

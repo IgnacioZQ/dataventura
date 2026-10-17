@@ -1,0 +1,32 @@
+{
+  "name": "ForumThread",
+  "type": "object",
+  "properties": {
+    "course_id": {
+      "type": "string",
+      "description": "ID del curso"
+    },
+    "title": {
+      "type": "string",
+      "description": "T\u00edtulo del tema"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n del tema"
+    },
+    "created_by_email": {
+      "type": "string",
+      "description": "Email del creador (instructor)"
+    },
+    "is_pinned": {
+      "type": "boolean",
+      "default": false,
+      "description": "Si el tema est\u00e1 fijado"
+    }
+  },
+  "required": [
+    "course_id",
+    "title",
+    "created_by_email"
+  ]
+}
