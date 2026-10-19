@@ -41,4 +41,5 @@
 .nx-oops .nx-sweat { animation: nxDrip 1.5s ease-in infinite }
 @keyframes nxDrip { 0% { transform: translateY(-4px); opacity: 0 } 20% { opacity: 1 } 100% { transform: translateY(16px); opacity: 0 } }
 .nx-estatico, .nx-estatico * { animation: none !important; transition: none !important }
+.nxa[data-pausa], .nxa[data-pausa] * { animation-play-state: paused !important }
 @media (prefers-reduced-motion: reduce) { .nxa, .nxa * { animation: none !important; transition: none !important } }

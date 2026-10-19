@@ -12,7 +12,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
+        // React va aparte: si queda dentro del archivo de Remotion, la portada lo descarga entero al abrir.
         manualChunks(id) {
+          if (/node_modules\/(react|react-dom|scheduler)\//.test(id)) return 'react';
           if (id.includes('node_modules/remotion') || id.includes('node_modules/@remotion')) return 'remotion';
         }
       }

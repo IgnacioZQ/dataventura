@@ -105,7 +105,7 @@ export function Etapas() {
             <span className="mt-2 font-ui text-xs font-extrabold tracking-[.1em] text-gris uppercase">{t.etapas.mapas}</span>
             <ul className="grid grid-cols-2 gap-1.5">
               {mapas.map(m => (
-                <li key={m.nombre} className="flex items-center gap-1.5 rounded-lg border px-2 py-1 text-[11px] leading-tight font-bold" style={{ background: m.mar, borderColor: m.ola, color: 'oscuro' in m ? '#fff' : '#1b1230' }}>
+                <li key={m.nombre} className="flex items-center gap-1.5 rounded-lg border px-2 py-1 text-xs leading-tight font-bold" style={{ background: m.mar, borderColor: m.ola, color: 'oscuro' in m ? '#fff' : '#1b1230' }}>
                   <span className="size-2 shrink-0 rounded-full" style={{ background: m.ruta }} />{m.nombre}
                 </li>
               ))}

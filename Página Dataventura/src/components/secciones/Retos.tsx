@@ -96,12 +96,16 @@ function RetoGrafico() {
 
 function RetoSinCodigo() {
   const { t } = useIdioma();
-  const [on, setOn] = useState(false);
+  // Pasar el cursor muestra el cambio; el clic (o el toque) lo deja fijo. Antes, con mouse, el cursor lo activaba
+  // y el clic lo volvía a apagar, así que parecía que hacer clic no hacía nada.
+  const [fijo, setFijo] = useState(false);
+  const [encima, setEncima] = useState(false);
+  const on = fijo || encima;
   const altos = on ? [40, 62, 100, 44] : [30, 45, 60, 38];
   return (
     <div className="flex max-w-full flex-col items-center gap-2.5">
-      <button type="button" onClick={() => setOn(!on)} onPointerEnter={e => e.pointerType === 'mouse' && setOn(true)} onPointerLeave={e => e.pointerType === 'mouse' && setOn(false)}
-        aria-pressed={on} aria-label={t.f2quote} className="relative h-[260px] w-[320px] max-w-full text-left">
+      <button type="button" onClick={() => { if (fijo) { setFijo(false); setEncima(false); } else setFijo(true); }} onPointerEnter={e => e.pointerType === 'mouse' && setEncima(true)} onPointerLeave={e => e.pointerType === 'mouse' && setEncima(false)}
+        aria-pressed={fijo} aria-label={t.f2quote} className="relative h-[260px] w-[320px] max-w-full text-left">
         <motion.div className="absolute top-[30px] left-0 w-[200px] rounded-[18px] bg-tinta p-[18px]" animate={{ rotate: on ? -14 : -5, x: on ? -26 : 0, y: on ? 30 : 0, opacity: on ? 0.35 : 1 }} transition={{ type: 'spring', stiffness: 200, damping: 16 }}>
           <code translate="no" className="block font-mono text-sm leading-[1.8] text-[#c9bdf0]">=SUMAR.SI(B2:B9;<br />&gt;100)<br />df.groupby()</code>
           <span className="absolute top-1/2 right-2.5 left-2.5 h-1.5 -rotate-12 rounded bg-coral" />

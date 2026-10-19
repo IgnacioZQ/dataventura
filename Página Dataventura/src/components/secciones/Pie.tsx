@@ -84,7 +84,7 @@ export function Pie() {
               <span className="font-ui text-[19px] font-extrabold">{c.h}</span>
               {c.l.map(e => (
                 <a key={e.label} href={e.href} data-wipe={e.wipe} target={e.externo ? '_blank' : undefined} rel={e.externo ? 'noopener' : undefined}
-                  className="w-fit text-[15px] font-bold text-white/90 transition-colors hover:text-oro">{e.label}</a>
+                  className="-my-1.5 w-fit py-1.5 text-[15px] font-bold text-white/90 transition-colors hover:text-oro">{e.label}</a>
               ))}
             </nav>
           ))}

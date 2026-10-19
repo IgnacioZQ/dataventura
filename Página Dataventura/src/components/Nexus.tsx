@@ -1,6 +1,6 @@
 // Capitán NEXUS, la mascota de Dataventura. Portado del diseño (Nexus.dc.html): cinco poses animadas,
 // parpadeo, respiración, mirada que sigue al cursor (mirarX / mirarY) e inclinación.
-import type { CSSProperties } from 'react';
+import { type CSSProperties, useEffect, useRef } from 'react';
 import './nexus.css';
 
 export type Pose = 'idle' | 'hello' | 'happy' | 'think' | 'oops';
@@ -17,6 +17,15 @@ const POSES: Record<Pose, {
   think: { armR: 'M92 126 Q102 128 96 114', hook: hook(90, 114, -30), armL: 'M48 124 Q36 134 38 148', hl: [38, 150], eye: 'open', brow: 'M80 62 Q88 55 96 63', mouth: 'M70 104 Q78 101 86 105', fill: 'none', think: true },
   oops: { armR: 'M92 124 Q104 134 102 150', hook: hook(102, 152, 180), armL: 'M48 124 Q36 134 38 148', hl: [38, 150], eye: 'open', brow: 'M80 64 Q90 68 99 73', mouth: 'M66 109 Q78 98 90 109', fill: 'none', sweat: true }
 };
+
+// Las animaciones de NEXUS mueven grupos dentro del SVG, y eso invalida el diseño en cada cuadro. Con varios NEXUS
+// en la página, el scroll forzaba recálculos completos (lento en celulares). Un observador compartido pausa los
+// que están fuera de pantalla con data-pausa (no con className, que React reescribe al cambiar de pose).
+let observador: IntersectionObserver | null = null;
+const pausaFuera = () => observador ??= new IntersectionObserver(
+  es => es.forEach(e => { if (e.isIntersecting) delete (e.target as SVGElement).dataset.pausa; else (e.target as SVGElement).dataset.pausa = ''; }),
+  { rootMargin: '120px 0px' }
+);
 
 const NOMBRES: Record<Pose, string> = { idle: 'de pie', hello: 'saludando', happy: 'celebrando', think: 'pensando', oops: 'preocupado' };
 
@@ -40,10 +49,19 @@ export function Nexus({ pose = 'idle', tam = 150, saludo = false, cabeza = false
   const t = Math.max(-12, Math.min(12, inclinar));
   const giro = seguirCursor ? 'rotate(calc(var(--nx-mx, 0) * 6deg))' : `rotate(${t}deg)`;
   const mirada = seguirCursor ? 'translate(calc(var(--nx-mx, 0) * 4px), calc(var(--nx-my, 0) * 3.5px))' : `translate(${lx}px, ${ly}px)`;
+  const ref = useRef<SVGSVGElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (estatico || !el || typeof IntersectionObserver === 'undefined') return;
+    const o = pausaFuera();
+    o.observe(el);
+    return () => o.unobserve(el);
+  }, [estatico]);
   const clase = ['nxa', `nx-${pose}`, saludo && pose !== 'happy' ? 'nx-tip' : '', estatico ? 'nx-estatico' : ''].join(' ');
 
   return (
     <svg
+      ref={ref}
       className={clase}
       width={tam}
       height={Math.round((tam * vbH) / 140)}

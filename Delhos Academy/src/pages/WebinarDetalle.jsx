@@ -48,7 +48,7 @@ export default function WebinarDetalle() {
     <Marco>
       <section className="border-b border-linea bg-white pb-14 pt-12">
         <div className="wrap flex flex-col gap-5">
-          <nav aria-label="Ruta" className="flex gap-2 text-sm text-gris"><A pagina="Webinars" className="no-underline">Webinars y workshops</A><span aria-hidden>/</span><span className="truncate">{e.titulo}</span></nav>
+          <nav aria-label="Ruta" className="flex gap-2 text-sm text-gris"><A pagina="Webinars" className="-my-3 py-3 no-underline">Webinars y workshops</A><span aria-hidden>/</span><span className="truncate">{e.titulo}</span></nav>
           <div className="flex flex-wrap gap-2">
             <span className="pill">{e.tipo}</span>
             {e.enVivo && <span className="pill !bg-verde-suave !text-verde"><span className="dot live" />En vivo ahora</span>}

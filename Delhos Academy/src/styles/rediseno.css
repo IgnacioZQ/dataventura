@@ -214,3 +214,9 @@ a.info:hover { padding-left: 8px; }
   .hl { background-size: 100% 32%; }
   .follow { transform: none !important; }
 }
+
+
+/* Controles del reproductor de Remotion: sus botones miden 16–25 × 37 px; en el celular se agrandan a 44 px. */
+button[title="Play video"], button[title="Pause video"], button[title="Enter Fullscreen"], button[title="Exit Fullscreen"] { min-width: 44px; height: 44px !important; justify-content: center; }
+/* Enlaces del pie (22 px de alto): área de toque más alta sin mover el diseño */
+footer .flink { padding-block: 7px; margin-block: -7px; }

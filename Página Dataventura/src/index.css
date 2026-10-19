@@ -147,3 +147,6 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .mancha-viva, .flota, .anillo, .llamita, .gema-gira, .eq, .pista, .brillo::after { animation: none !important }
 }
+
+/* Controles del reproductor de Remotion: sus botones miden 16–25 × 37 px; en el celular se agrandan a 44 px. */
+button[title="Play video"], button[title="Pause video"], button[title="Enter Fullscreen"], button[title="Exit Fullscreen"] { min-width: 44px; height: 44px !important; justify-content: center; }

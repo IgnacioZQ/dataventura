@@ -89,7 +89,7 @@ export function Dimensiones() {
               <h3 className="mt-5 font-display text-[28px] leading-[1.05] text-tinta">{d.nombre}</h3>
               <p className="mt-2 font-semibold leading-snug text-suave">{d.idea}</p>
               <div className="mt-auto rounded-2xl border-2 border-dashed px-4 py-3" style={{ borderColor: `${d.color}66` }}>
-                <span className="block font-ui text-[11px] font-extrabold tracking-[.12em] text-gris uppercase">{t.dims.caso}</span>
+                <span className="block font-ui text-xs font-extrabold tracking-[.12em] text-gris uppercase">{t.dims.caso}</span>
                 <span className="font-ui text-[15px] font-bold text-tinta">{d.ejemplo}</span>
               </div>
             </div>

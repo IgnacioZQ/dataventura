@@ -59,6 +59,25 @@ a, button, label, input, textarea, [tabindex] { touch-action: manipulation; -web
 /* La película en carga: el punto del botón late mientras llega Remotion */
 .cargando .play-dot { animation: halo-b 1.4s infinite; }
 
+/* ---------- Fluidez al cargar y al hacer scroll ---------- */
+/* Animaciones que se repiten: en pausa mientras su sección no está en pantalla (clase puesta por efectos.ts) */
+.fuera, .fuera *, .fuera *::before, .fuera *::after { animation-play-state: paused !important; }
+/* La trama del héroe: el max-width global la dejaba 160 px más angosta (quedaba una franja sin trama a la
+   derecha) y, sin capa propia, se repintaba entera en cada cuadro de su deriva. */
+.hero-trama { max-width: none; will-change: translate; }
+/* El halo y el escenario flotante se animan en su propia capa en vez de repintarse */
+.stage::before { will-change: opacity, scale; }
+.stage-in { will-change: translate, transform; }
+/* Los signos de la palabra que se descifra no cambian la altura de la línea (el título saltaba unos 5 px) */
+.scramble .g { line-height: 0; }
+
+/* ---------- Comodidad en el celular ---------- */
+/* Etiquetas en mayúsculas de menos de 11 px: legibles sin acercarse la pantalla */
+.show-head small i, .avail { font-size: .7rem; }
+.dz-face em { font-size: .72rem; }
+/* El correo del pie medía 23 px de alto: área de toque de 43 px sin mover el diseño */
+.footer a[href^="mailto:"] { display: inline-block; padding-block: 10px; margin-block: -10px; }
+
 /* Movimiento reducido: solo fundidos, también en las transiciones */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-property: opacity, visibility, color, background-color, border-color, box-shadow !important; }

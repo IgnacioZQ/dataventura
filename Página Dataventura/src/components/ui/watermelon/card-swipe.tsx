@@ -95,10 +95,11 @@ export function CardSwipe<T>({ items, render, etiqueta, nombre, className, texto
         <button type="button" onClick={() => !primera && ir(actual - 1)} aria-disabled={primera} aria-label={textos.anterior} className={estiloFlecha}>
           <ChevronLeft className="size-5" strokeWidth={3} />
         </button>
-        <div className="flex gap-2">
+        {/* Puntos de 32 px (antes 24): más fáciles de tocar en el celular, con menos espacio entre ellos. */}
+        <div className="flex gap-0.5">
           {items.map((item, i) => (
             <button key={i} type="button" onClick={() => ir(i)} aria-label={nombre(item, i)} aria-current={i === actual}
-              className="grid size-6 place-items-center">
+              className="grid size-8 place-items-center">
               <span className={cn('block h-2.5 rounded-full transition-[width,background-color] duration-300', i === actual ? 'w-7 bg-dv' : 'w-2.5 bg-lila-300')} />
             </button>
           ))}

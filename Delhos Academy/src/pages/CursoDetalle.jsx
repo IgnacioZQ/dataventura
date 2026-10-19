@@ -154,7 +154,7 @@ export default function CursoDetalle() {
     <Marco>
       <section className="border-b border-linea bg-white pb-14 pt-12">
         <div className="wrap flex flex-col gap-5">
-          <nav aria-label="Ruta" className="flex gap-2 text-sm text-gris"><A pagina="Cursos" className="no-underline">Cursos</A><span aria-hidden>/</span><span className="truncate">{curso.titulo}</span></nav>
+          <nav aria-label="Ruta" className="flex gap-2 text-sm text-gris"><A pagina="Cursos" className="-my-3 py-3 no-underline">Cursos</A><span aria-hidden>/</span><span className="truncate">{curso.titulo}</span></nav>
           <div className="flex flex-wrap gap-2">
             <span className={`pill ${curso.abierto ? '!bg-verde-suave !text-verde' : curso.finalizado ? '!bg-linea-suave !text-texto' : ''}`}>{curso.abierto && <span className="dot live" />}{curso.estadoTexto}</span>
             <span className="pill">{curso.nivel}</span>

@@ -33,6 +33,7 @@ export default function Reproductor({ component, inputProps, duracion, fps = 30,
           style={{ width: '100%', aspectRatio: `${ancho} / ${alto}` }}
           loop
           controls={controles}
+          showVolumeControls={false}
           clickToPlay={controles}
           initiallyMuted
           acknowledgeRemotionLicense
@@ -41,7 +42,7 @@ export default function Reproductor({ component, inputProps, duracion, fps = 30,
       </div>
       {!controles && !reducir && (
         <button type="button" onClick={() => setPausado(v => !v)}
-          className="btn btn-w sr-only !min-h-9 !px-3 !text-sm focus:not-sr-only focus:absolute focus:bottom-3 focus:right-3">
+          className="btn btn-w sr-only !min-h-11 !min-w-11 !px-3 !text-sm focus:not-sr-only focus:absolute focus:bottom-3 focus:right-3">
           {pausado ? 'Reanudar animación' : 'Pausar animación'}
         </button>
       )}

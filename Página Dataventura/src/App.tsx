@@ -1,5 +1,5 @@
 import { MotionConfig } from 'motion/react';
-import { lazy, Suspense, useMemo } from 'react';
+import { lazy, Suspense, useEffect, useMemo } from 'react';
 import { Limite } from '@/components/Limite';
 import { Barrido } from '@/components/Piezas';
 import { Certificados } from '@/components/secciones/Certificados';
@@ -24,9 +24,30 @@ const Trailer = lazy(() => import('@/components/secciones/Trailer').then(m => ({
 // Tramos del índice flotante, en el orden de la página (el número es la posición del título en t.indice).
 const TRAMOS: [string, number][] = [['aprende', 0], ['partida', 1], ['etapas', 2], ['pruebalo', 4], ['dimensiones', 3], ['diagnostico', 5], ['certificados', 6], ['instalar', 7], ['preguntas', 8]];
 
+/**
+ * Al entrar con un ancla desde otra página (por ejemplo /dataventura/#preguntas desde el pie de una subpágina), el
+ * navegador intenta saltar antes de que React arme la página y se queda arriba. Se salta aquí, y se corrige un par
+ * de veces mientras llegan la tipografía y el video de más arriba; si la persona mueve la página, se deja de corregir.
+ */
+function useAnclaInicial() {
+  useEffect(() => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    let tocado = false;
+    const parar = () => { tocado = true; };
+    const eventos = ['wheel', 'touchstart', 'keydown', 'pointerdown'] as const;
+    eventos.forEach(e => addEventListener(e, parar, { passive: true }));
+    const ir = () => { if (!tocado) document.getElementById(id)?.scrollIntoView({ block: 'start', behavior: 'instant' as ScrollBehavior }); };
+    const tiempos = [0, 300, 800, 1600].map(ms => window.setTimeout(ir, ms));
+    void document.fonts?.ready.then(ir);
+    return () => { tiempos.forEach(clearTimeout); eventos.forEach(e => removeEventListener(e, parar)); };
+  }, []);
+}
+
 function Landing() {
   const { t, locale } = useIdioma();
   useSeo(t.seo.titulo, t.seo.descripcion);
+  useAnclaInicial();
   const tramos = useMemo(() => TRAMOS.map(([id, i]) => ({ id, title: t.indice[i] })), [t]);
   return (
     <>

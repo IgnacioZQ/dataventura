@@ -4,6 +4,9 @@
 // tarjetas del desafío, nombre gigante del pie y barrido de color al ir a una plataforma.
 import { useEffect } from 'react';
 
+// Los estados del índice y de «volver arriba» usan la clase visible: «show» es la clase de las tarjetas del héroe
+// y, al compartirla, el índice dejaba de ser fijo y empujaba la página 263 px hacia abajo.
+
 const lim = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
 const mezcla = (a: number, b: number, t: number) => a + (b - a) * t;
 const $ = <T extends Element = HTMLElement>(s: string, c: ParentNode = document) => c.querySelector<T>(s);
@@ -21,11 +24,17 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
     };
     const en = (el: Element | null, ev: string, fn: EventListener) => { if (!el) return; el.addEventListener(ev, fn); limpiar.push(() => el.removeEventListener(ev, fn)); };
     let vivo = true;
+    let yScroll = 0;
 
     /* Aparición al hacer scroll */
     const aparece = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); aparece.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
     $$('.rv, .split').forEach(el => aparece.observe(el));
     limpiar.push(() => aparece.disconnect());
+
+    /* Las animaciones que se repiten (latidos, bordes que giran, barcos) se pausan en las secciones fuera de pantalla */
+    const fuera = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('fuera', !e.isIntersecting)), { rootMargin: '120px 0px' });
+    $$('main > section, main > .bands, footer').forEach(el => fuera.observe(el));
+    limpiar.push(() => fuera.disconnect());
 
     /* Botones: brillo que sigue al puntero y, con mouse, efecto magnético */
     $$('.btn').forEach(b => en(b, 'pointermove', (e) => {
@@ -49,15 +58,38 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
     const destinos = tocLinks.map(a => $(a.getAttribute('href') || ''));
     const arbol = $('#tree'), gigante = $('#giant');
     const lnIn = arbol ? $$<SVGPathElement>('.links-in .ln', arbol) : [], lnOut = arbol ? $$<SVGPathElement>('.links-out .ln', arbol) : [];
-    let antes = scrollY, pendiente = false;
+    // Rendimiento: scrollY se lee una vez por cuadro (y lo usa también la banda de temas); el tramo del índice lo
+    // avisa un IntersectionObserver; las ramas y el nombre gigante se miden solo cerca de la pantalla; y solo se
+    // escribe en la página lo que cambió. Antes, cada cuadro medía todas las secciones y reescribía el índice, y
+    // con las animaciones del héroe eso forzaba a recalcular el diseño de toda la página (lento en celulares).
+    let antes = scrollY, pendiente = false, max = 1, tramo = 0, tramoPintado = -1, arbolCerca = false, giganteCerca = false;
+    yScroll = scrollY;
+    const medirAlto = () => { max = Math.max(1, document.documentElement.scrollHeight - innerHeight); pedir(); };
+    const ro = new ResizeObserver(medirAlto);
+    ro.observe(document.body);
+    limpiar.push(() => ro.disconnect());
+    const empezo = destinos.map(() => false);
+    const ioToc = new IntersectionObserver(es => {
+      es.forEach(e => { const i = destinos.indexOf(e.target as HTMLElement); if (i >= 0) empezo[i] = e.isIntersecting || e.boundingClientRect.bottom <= 0; });
+      tramo = Math.max(0, empezo.lastIndexOf(true));
+      pedir();
+    }, { rootMargin: '0px 0px -55% 0px' });
+    destinos.forEach(d => d && ioToc.observe(d));
+    const ioCerca = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.target === arbol) arbolCerca = e.isIntersecting; if (e.target === gigante) giganteCerca = e.isIntersecting; });
+      pedir();
+    }, { rootMargin: '25% 0px' });
+    if (arbol) ioCerca.observe(arbol);
+    if (gigante) ioCerca.observe(gigante);
+    limpiar.push(() => { ioToc.disconnect(); ioCerca.disconnect(); });
     const alScroll = () => {
       pendiente = false;
-      const y = scrollY, max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? y / max : 0;
+      const y = scrollY, p = Math.min(1, y / max);
+      yScroll = y;
+      // Primero las lecturas de layout y después las escrituras.
+      const rArbol = arbolCerca ? arbol?.getBoundingClientRect() : undefined;
+      const rGigante = giganteCerca ? gigante?.getBoundingClientRect() : undefined;
       const abierto = !!$('.dd.open') || !!menu?.classList.contains('open');
-      // Primero todas las lecturas de layout y después las escrituras, para no forzar recálculos en cada cuadro.
-      const topes = destinos.map(d => d?.getBoundingClientRect().top ?? Infinity);
-      const rArbol = arbol?.getBoundingClientRect();
-      const rGigante = gigante?.getBoundingClientRect();
       if (nav) {
         nav.classList.toggle('scrolled', y > 30);
         if (!abierto && y > 700 && y > antes + 4) nav.classList.add('hide');
@@ -65,26 +97,28 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
       }
       antes = y;
       if (progreso) progreso.style.transform = `scaleX(${p})`;
-      if (arriba) { arriba.classList.toggle('show', y > 900); arriba.style.setProperty('--off', String(1 - p)); }
+      if (arriba) { arriba.classList.toggle('visible', y > 900); if (y > 900) arriba.style.setProperty('--off', String(1 - p)); }
       if (toc) {
-        let actual = 0;
-        topes.forEach((top, i) => { if (top < innerHeight * 0.45) actual = i; });
-        tocLinks.forEach((a, i) => { a.classList.toggle('on', i === actual); if (i === actual) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
-        toc.classList.toggle('show', y > innerHeight * 0.6);
+        if (tramo !== tramoPintado) {
+          tocLinks.forEach((a, i) => { a.classList.toggle('on', i === tramo); if (i === tramo) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+          tramoPintado = tramo;
+        }
+        toc.classList.toggle('visible', y > innerHeight * 0.6);
       }
-      if (arbol && rArbol) {
+      if (rArbol) {
         const k = lim((innerHeight - rArbol.top) / (innerHeight * 0.9), 0, 1);
         const a = reducir ? 0 : 1 - lim(k * 2.2 - 0.3, 0, 1), b = reducir ? 0 : 1 - lim(k * 2.2 - 0.8, 0, 1);
         lnIn.forEach(l => l.style.setProperty('--draw', String(a)));
         lnOut.forEach(l => l.style.setProperty('--draw', String(b)));
       }
-      if (gigante && rGigante) {
-        gigante.style.setProperty('--gf', `${(reducir ? 1 : lim((innerHeight - rGigante.top) / (innerHeight * 0.55), 0, 1)) * 100}%`);
+      if (rGigante) {
+        gigante!.style.setProperty('--gf', `${(reducir ? 1 : lim((innerHeight - rGigante.top) / (innerHeight * 0.55), 0, 1)) * 100}%`);
       }
     };
-    const pedir = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(alScroll); } };
+    function pedir() { if (!pendiente) { pendiente = true; requestAnimationFrame(alScroll); } }
     escuchar(window, 'scroll', pedir, { passive: true });
-    escuchar(window, 'resize', pedir);
+    escuchar(window, 'resize', medirAlto);
+    medirAlto();
     alScroll();
 
     /* Héroe: palabra que se descifra */
@@ -132,6 +166,7 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
       const ctx = lienzo.getContext('2d')!, host = lienzo.parentElement!, raton = { x: -9999, y: -9999 };
       const cs = getComputedStyle(document.documentElement);
       const PUNTO = cs.getPropertyValue('--red-punto').trim() || '30,97,148', LINEA = cs.getPropertyValue('--red-linea').trim() || '74,144,194';
+      const TRAMOS = 8;
       let W = 0, H = 0, visible = true, t = 0;
       let nodos: { x: number; y: number; vx: number; vy: number; r: number }[] = [];
       let chispas: { a: typeof nodos[number]; b: typeof nodos[number]; k: number }[] = [];
@@ -153,17 +188,28 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
           const dx = p.x - raton.x, dy = p.y - raton.y, d = Math.hypot(dx, dy);
           if (d > 0 && d < 120) { p.x += (dx / d) * 1.4; p.y += (dy / d) * 1.4; }
         }
+        // Las líneas se agrupan por tramos de opacidad y se dibujan en pocos trazos (uno por línea era lo más caro).
         ctx.lineWidth = 1;
+        const tramos = Array.from({ length: TRAMOS }, () => new Path2D()), tramosRaton = Array.from({ length: TRAMOS }, () => new Path2D());
         for (let i = 0; i < nodos.length; i++) {
           const a = nodos[i];
           for (let j = i + 1; j < nodos.length; j++) {
-            const b = nodos[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-            if (d < 150) { ctx.strokeStyle = `rgba(${LINEA},${0.3 * (1 - d / 150)})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); enlaces.push([a, b]); }
+            const b = nodos[j], dx = a.x - b.x, dy = a.y - b.y;
+            if (dx > 150 || dx < -150 || dy > 150 || dy < -150) continue;
+            const d = Math.hypot(dx, dy);
+            if (d < 150) { const p = tramos[Math.min(TRAMOS - 1, Math.floor((d / 150) * TRAMOS))]; p.moveTo(a.x, a.y); p.lineTo(b.x, b.y); enlaces.push([a, b]); }
           }
           const dm = Math.hypot(a.x - raton.x, a.y - raton.y);
-          if (dm < 180) { ctx.strokeStyle = `rgba(${PUNTO},${0.45 * (1 - dm / 180)})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(raton.x, raton.y); ctx.stroke(); }
+          if (dm < 180) { const p = tramosRaton[Math.min(TRAMOS - 1, Math.floor((dm / 180) * TRAMOS))]; p.moveTo(a.x, a.y); p.lineTo(raton.x, raton.y); }
         }
-        for (const p of nodos) { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(${PUNTO},.55)`; ctx.fill(); }
+        for (let k = 0; k < TRAMOS; k++) {
+          const f = 1 - (k + 0.5) / TRAMOS;
+          ctx.strokeStyle = `rgba(${LINEA},${0.3 * f})`; ctx.stroke(tramos[k]);
+          ctx.strokeStyle = `rgba(${PUNTO},${0.45 * f})`; ctx.stroke(tramosRaton[k]);
+        }
+        const puntos = new Path2D();
+        for (const p of nodos) { puntos.moveTo(p.x + p.r, p.y); puntos.arc(p.x, p.y, p.r, 0, Math.PI * 2); }
+        ctx.fillStyle = `rgba(${PUNTO},.55)`; ctx.fill(puntos);
         if (!reducir && enlaces.length && t % 18 === 0 && chispas.length < 7) { const [a, b] = enlaces[Math.floor(Math.random() * enlaces.length)]; chispas.push({ a, b, k: 0 }); }
         chispas = chispas.filter(s => s.k <= 1);
         for (const s of chispas) {
@@ -214,7 +260,9 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
     const bandas = $('.bands');
     if (pistas.length && bandas && !reducir) {
       const estado = pistas.map(t => ({ t, x: 0, dir: +(t.dataset.speed || 1), w: 0 }));
-      let vel = 0, yAntes = scrollY, verBandas = true;
+      // La posición la deja alScroll (una lectura por cuadro): leer scrollY aquí también, después de que otros
+      // efectos escribieron estilos, obligaba a recalcular el diseño de toda la página en cada cuadro.
+      let vel = 0, yAntes = yScroll, verBandas = true;
       const medirBandas = () => estado.forEach(s => { s.w = s.t.scrollWidth / 2; });
       medirBandas(); escuchar(window, 'resize', medirBandas);
       let idBanda = 0;
@@ -223,7 +271,7 @@ export function useEfectos(logos: { academy: string; dataventura: string }) {
       limpiar.push(() => { io.disconnect(); cancelAnimationFrame(idBanda); });
       const mover = () => {
         if (!vivo || !verBandas) { idBanda = 0; return; }
-        const dy = scrollY - yAntes; yAntes = scrollY;
+        const dy = yScroll - yAntes; yAntes = yScroll;
         vel = mezcla(vel, lim(dy, -60, 60), 0.1);
         estado.forEach(s => {
           s.x -= s.dir * (0.6 + Math.abs(vel) * 0.35);

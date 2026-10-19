@@ -8,6 +8,9 @@
     <meta name="theme-color" content="#FFFFFF" />
     <!-- Como en el diseño: con JavaScript activo, las piezas que aparecen al hacer scroll parten ocultas. -->
     <script>document.documentElement.classList.add('js')</script>
+    <!-- Las dos tipografías del héroe llegan antes del primer pintado: si no, el título se corre al cambiar de fuente -->
+    <link rel="preload" href="/node_modules/@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/node_modules/@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/marca/delhos-icono-app.svg" />
     <link rel="icon" type="image/png" sizes="192x192" href="/marca/delhos-logo-192.png" />
     <link rel="apple-touch-icon" href="/marca/delhos-logo-192.png" />

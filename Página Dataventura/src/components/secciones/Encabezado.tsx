@@ -1,10 +1,11 @@
 // Encabezado del diseño: NEXUS como logo, selector de idioma, botón que aparece al bajar y barra de progreso.
-import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
+import { AnimatePresence, motion, useSpring } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Nexus } from '@/components/Nexus';
 import { app, SITIO } from '@/config';
 import { IDIOMAS, useIdioma } from '@/i18n/idioma';
+import { useProgresoScroll } from '@/lib/scroll';
 import { cn } from '@/lib/utils';
 
 /** Enlace para saltar al contenido, visible solo con el teclado. */
@@ -69,7 +70,7 @@ export function SelectorIdioma({ compacto = false }: { compacto?: boolean }) {
 
 export function Encabezado() {
   const { t } = useIdioma();
-  const { scrollYProgress, scrollY } = useScroll();
+  const { scrollYProgress, scrollY } = useProgresoScroll();
   const progreso = useSpring(scrollYProgress, { stiffness: 140, damping: 26 });
   const [verCta, setVerCta] = useState(false);
   useEffect(() => scrollY.on('change', y => setVerCta(y > 480)), [scrollY]);
@@ -78,14 +79,16 @@ export function Encabezado() {
     <header className="sticky top-0 z-50 border-b-2 border-borde bg-white/85 backdrop-blur-md backdrop-saturate-150">
       <div className="mx-auto flex h-[64px] max-w-[1120px] items-center justify-between gap-3 px-4 sm:px-5">
         <a href={SITIO.inicio} aria-label={t.logoAria} className="group flex items-center gap-2 rounded-2xl">
-          <motion.span whileHover={{ scale: 1.06, rotate: -3 }} whileTap={{ scale: 0.94 }}><Nexus pose="idle" cabeza tam={52} decorativo /></motion.span>
+          {/* Quieto: la cabecera siempre está a la vista y su respiración invalidaba el diseño en cada cuadro. */}
+          <motion.span whileHover={{ scale: 1.06, rotate: -3 }} whileTap={{ scale: 0.94 }}><Nexus pose="idle" cabeza tam={52} estatico decorativo /></motion.span>
           <span className="hidden flex-col leading-none min-[420px]:flex">
             <span translate="no" className="font-display text-[22px] text-dv">Dataventura</span>
             <span translate="no" className="font-ui text-[10px] font-extrabold tracking-[.16em] text-gris uppercase">by Delhos</span>
           </span>
         </a>
         <div className="flex items-center gap-2">
-          <SelectorIdioma />
+          {/* layout="position": al aparecer el botón, el selector se desliza en vez de saltar a la izquierda. */}
+          <motion.div layout="position" transition={{ type: 'spring', stiffness: 420, damping: 34 }}><SelectorIdioma /></motion.div>
           <AnimatePresence>
             {verCta && (
               <motion.a href={app('/')} data-wipe="dv" initial={{ opacity: 0, y: -6, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: 0.9 }}

@@ -49,7 +49,7 @@ export function Trailer() {
               compositionWidth={PARTIDA.ancho} compositionHeight={PARTIDA.alto}
               style={{ width: '100%', aspectRatio: `${PARTIDA.ancho} / ${PARTIDA.alto}` }}
               errorFallback={() => null}
-              controls loop clickToPlay doubleClickToFullscreen acknowledgeRemotionLicense initiallyMuted />
+              controls showVolumeControls={false} loop clickToPlay doubleClickToFullscreen acknowledgeRemotionLicense initiallyMuted />
           </div>
           <div className="mt-6 flex flex-wrap justify-center gap-2" role="group" aria-label={t.trailer.grupo}>
             {CAPITULOS.map((c, i) => (

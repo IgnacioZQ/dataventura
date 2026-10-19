@@ -170,7 +170,7 @@ section { position: relative; padding-block: 80px; }
   background: var(--noche); color: #fff; box-shadow: 0 14px 30px -12px rgba(8, 29, 53, .8);
   opacity: 0; translate: 0 20px; pointer-events: none; transition: opacity .35s, translate .35s var(--ease);
 }
-.to-top.show { opacity: 1; translate: none; pointer-events: auto; }
+.to-top.visible { opacity: 1; translate: none; pointer-events: auto; }
 .to-top .ring { position: absolute; inset: 0; width: 100%; height: 100%; rotate: -90deg; }
 .to-top .ring circle { fill: none; stroke: var(--chispa); stroke-width: 3; stroke-dasharray: 1; stroke-dashoffset: var(--off, 1); stroke-linecap: round; }
 .to-top:hover .ico { animation: hop .5s var(--ease); }
@@ -247,7 +247,7 @@ section { position: relative; padding-block: 80px; }
 
 /* índice lateral de secciones */
 .toc { position: fixed; z-index: 80; right: calc(22px + env(safe-area-inset-right, 0px)); top: 50%; translate: 0 -50%; display: grid; gap: 4px; opacity: 0; pointer-events: none; transition: opacity .4s; }
-.toc.show { opacity: 1; pointer-events: auto; }
+.toc.visible { opacity: 1; pointer-events: auto; }
 .toc a { position: relative; display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-height: 26px; padding: 2px 0; }
 .toc i { width: 8px; height: 8px; border-radius: 99px; background: var(--borde-control); opacity: .55; transition: height .4s var(--ease), background .3s, opacity .3s; }
 .toc span { padding: 4px 10px; border-radius: 999px; background: var(--superficie); border: 1px solid var(--linea); box-shadow: var(--sombra-tarjeta); font-size: .78rem; font-weight: 700; color: var(--tinta); white-space: nowrap; opacity: 0; translate: 8px 0; transition: opacity .25s, translate .35s var(--ease); pointer-events: none; }

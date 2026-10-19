@@ -82,8 +82,10 @@ export function Tilt({
     <motion.div
       ref={ref}
       className={className}
+      // Adaptado: sin transform-style: preserve-3d. Ningún hijo usa profundidad, y en ese contexto 3D un botón que
+      // se hunde al apretarlo (:active) quedaba en el mismo plano que su contenedor: con mouse, el pointerup caía
+      // en el contenedor y el clic se perdía (en el celular no pasaba porque el toque es instantáneo).
       style={{
-        transformStyle: 'preserve-3d',
         ...style,
         transform,
       }}

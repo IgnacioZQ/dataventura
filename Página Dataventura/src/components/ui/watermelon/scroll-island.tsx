@@ -1,13 +1,14 @@
 // Basado en Scroll Island de Watermelon UI (https://ui.watermelon.sh, MIT): una "isla" flotante con el avance
 // de lectura en un anillo y un índice que se despliega. Adaptado a Dataventura como la "isla de ruta":
 // sigue el scroll de la página, muestra el tramo actual de la travesía y lleva un acceso directo a la app.
-// Rendimiento: el avance (anillo y porcentaje) va por MotionValues, sin re-renderizar en cada scroll; el tramo
-// actual se mide como mucho una vez por cuadro.
-import { AnimatePresence, motion, MotionConfig, useScroll, useTransform } from 'motion/react';
+// Rendimiento: el avance (anillo y porcentaje) va por MotionValues de un seguidor de scroll compartido, sin
+// re-renderizar en cada scroll; el tramo actual lo avisa un IntersectionObserver.
+import { AnimatePresence, motion, MotionConfig, useTransform } from 'motion/react';
 import { ChevronUp } from 'lucide-react';
 import { useEffect, useId, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import useMeasure from 'react-use-measure';
+import { useProgresoScroll } from '@/lib/scroll';
 import { cn } from '@/lib/utils';
 
 export interface Topic {
@@ -28,28 +29,28 @@ export function ScrollIsland({ topics, cta, textos = { inicio: 'La travesía', i
   const [ref, medidas] = useMeasure({ offsetSize: true });
   const idLista = useId();
 
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useProgresoScroll();
   const formato = useMemo(() => new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 0 }), [locale]);
   const porcentaje = useTransform(scrollYProgress, p => formato.format(Math.min(1, Math.max(0, p))));
   const anillo = useTransform(scrollYProgress, p => `conic-gradient(#ffd166 ${Math.min(100, Math.max(0, p * 100))}%, rgba(255,255,255,.14) 0)`);
 
+  // Visibilidad con scrollY (barato) y tramo actual con IntersectionObserver: antes se medía cada sección con
+  // getBoundingClientRect en cada cuadro de scroll, lo que forzaba a recalcular el diseño (lento en celulares).
   useEffect(() => {
-    let pendiente = 0;
-    const medir = () => {
-      pendiente = 0;
-      setVisible(scrollY > innerHeight * 0.6);
+    const alScroll = () => setVisible(scrollY > innerHeight * 0.6);
+    alScroll();
+    addEventListener('scroll', alScroll, { passive: true });
+    // Una sección «ya empezó» si su borde superior pasó el 45 % de la pantalla: corta la franja de arriba
+    // (rootMargin) o quedó entera por encima. El tramo actual es la última que empezó.
+    const empezo = new Map<string, boolean>();
+    const io = new IntersectionObserver(es => {
+      for (const e of es) empezo.set(e.target.id, e.isIntersecting || e.boundingClientRect.bottom <= 0);
       let enCurso: string | null = null;
-      for (const t of topics) {
-        const el = document.getElementById(t.id);
-        if (el && el.getBoundingClientRect().top < innerHeight * 0.45) enCurso = t.id;
-      }
+      for (const t of topics) if (empezo.get(t.id)) enCurso = t.id;
       setActual(enCurso);
-    };
-    const programar = () => { if (!pendiente) pendiente = requestAnimationFrame(medir); };
-    medir();
-    addEventListener('scroll', programar, { passive: true });
-    addEventListener('resize', programar);
-    return () => { cancelAnimationFrame(pendiente); removeEventListener('scroll', programar); removeEventListener('resize', programar); };
+    }, { rootMargin: '0px 0px -55% 0px' });
+    for (const t of topics) { const el = document.getElementById(t.id); if (el) io.observe(el); }
+    return () => { removeEventListener('scroll', alScroll); io.disconnect(); };
   }, [topics]);
 
   useEffect(() => {
@@ -114,7 +115,6 @@ export function ScrollIsland({ topics, cta, textos = { inicio: 'La travesía', i
                     className="flex min-w-0 flex-1 items-center gap-2.5 rounded-full py-1 pr-2 pl-1 text-left active:scale-[.98]"
                   >
                     <motion.span
-                      layout
                       className="relative size-9 shrink-0 rounded-full"
                       style={{ background: anillo }}
                     >

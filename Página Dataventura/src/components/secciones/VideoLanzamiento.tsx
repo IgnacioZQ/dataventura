@@ -22,7 +22,7 @@ export default function VideoLanzamiento({ etiqueta }: { etiqueta: string }) {
       className="overflow-hidden rounded-[28px] border-4 border-white/90 bg-dv-700 shadow-[0_14px_0_rgba(27,18,48,.25),0_40px_80px_-30px_rgba(27,18,48,.6)]">
       <Player ref={player} component={Lanzamiento} inputProps={{ base: import.meta.env.BASE_URL, url: APP_DOMINIO }}
         durationInFrames={LANZAMIENTO.duracion} fps={LANZAMIENTO.fps} compositionWidth={LANZAMIENTO.ancho} compositionHeight={LANZAMIENTO.alto}
-        style={{ width: '100%', aspectRatio: '9 / 16' }} controls loop clickToPlay initiallyMuted acknowledgeRemotionLicense
+        style={{ width: '100%', aspectRatio: '9 / 16' }} controls showVolumeControls={false} loop clickToPlay initiallyMuted acknowledgeRemotionLicense
         errorFallback={() => null} initialFrame={2620} />
     </div>
   );
